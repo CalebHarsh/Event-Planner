@@ -52,7 +52,7 @@ loginForm.on("submit", function(event) {
   		}
   		console.log("Login Successful");
   		// Redirect to User Dashboard
-  		window.location.href = "dashboard.html";
+  		window.location.href = "addevent.html";
 	});
 });
 

@@ -19,5 +19,5 @@ inputForm.on("submit", function(event) {
 	console.log(endDate);
 	console.log(location);
 
-	
+	// Now we make our API calls	
 })

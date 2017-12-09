@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Event Planner | New Event</title>
+	<!-- Bootstrap CDN link -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<!-- CSS Link -->
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+	<!-- Firebase Script  -->
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+</head>
+
+<body>
+
+	<video id="bgvid"></video>
+
+	<div class="site-wrapper">
+
+		<div class="site-wrapper-inner">
+
+			<div class="nav-container">
+
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h1 class="masthead-brand"><span class="event-highlight">Event</span>Planner</h1>
+						<nav class="nav nav-masthead">
+							<a class="nav-link active" href="index.html">My Events</a>
+							<a class="nav-link" href="#">Add Event</a>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+			<!-- Content Container -->
+			<div class="container">
+
+				<div class="row">
+					<!-- Input Form -->
+					<div class="col-4 animated bounceInLeft">
+							<h2 class="content-label mb-0 mt-5 p-2">Set Your Event</h2>
+							<form class="input-form" id="input-form">
+								<div class="form-group mb-4">
+									<label class="col-form-label" for="name-input">Name of Your Event</label>
+									<input type="text" class="form-control" id="name-input">
+								</div>
+								<div class="form-group mb-5">
+									<label class="col-form-label" for="start-date-input">Start Date</label>
+									<input type="date" class="form-control" id="start-date-input">
+								</div>
+								<div class="form-group mb-5">
+									<label class="col-form-label" for="end-date-input">End Date</label>
+									<input type="date" class="form-control" id="end-date-input">
+								</div>
+								<div class="form-group mb-5">
+									<label class="col-form-label" for="location-input">Location</label>
+									<input type="text" class="form-control" id="location-input">
+								</div>
+								 <button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+					</div>
+					<!-- End Input Form -->
+
+					<!-- Results Display -->
+					<div class="col-8" id="results-column">
+						<h2 class="content-label mb-0 mt-5 p-2">About Your Event</h2>
+						<div class="results-view" id="results-view"></div>
+					</div>
+					<!-- End Results Display -->
+				</div>
+
+			</div>
+			<!-- End Content Container -->
+		</div>
+
+	</div>
+
+
+	<!-- Bootstrap jQuery Link -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+	crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+	crossorigin="anonymous"></script>
+	<!-- Link Javascript File -->
+	<script type="text/javascript" src="assets/js/addevent.js"></script>
+</body>
+
+</html>

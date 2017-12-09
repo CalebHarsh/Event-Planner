@@ -175,6 +175,7 @@ video#bgvid {
   .masthead {
     position: fixed;
     top: 0;
+    z-index: 99;
   }
   .mastfoot {
     position: fixed;
@@ -216,4 +217,26 @@ video#bgvid {
 .modal-header,
 .modal-body {
   background-color: #211426;
+}
+
+/* Input Form */
+.input-form,
+.results-view {
+  height: 600px;
+  padding: 2rem;
+  background-color: #656f8c;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.content-label {
+  background-color: #9bbfab;
+  margin-bottom: 0;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+/* Results View */
+#results-column {
+  display: none;
 }

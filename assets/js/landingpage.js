@@ -10,14 +10,14 @@
 
 // MY LOCALHOST TESTING
 // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCGj0VzsfaUXPfXK1yUCjyLU8imQw7SBbs",
-    authDomain: "event-planner-6c6a9.firebaseapp.com",
-    databaseURL: "https://event-planner-6c6a9.firebaseio.com",
-    projectId: "event-planner-6c6a9",
-    storageBucket: "event-planner-6c6a9.appspot.com",
-    messagingSenderId: "168847381672"
-  };
+var config = {
+  apiKey: "AIzaSyCGj0VzsfaUXPfXK1yUCjyLU8imQw7SBbs",
+  authDomain: "event-planner-6c6a9.firebaseapp.com",
+  databaseURL: "https://event-planner-6c6a9.firebaseio.com",
+  projectId: "event-planner-6c6a9",
+  storageBucket: "event-planner-6c6a9.appspot.com",
+  messagingSenderId: "168847381672"
+};
 
 //config firebase
 firebase.initializeApp(config);
@@ -43,7 +43,7 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 800, function(){
-   
+       
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
@@ -79,7 +79,7 @@ loginForm.on("submit", function(event) {
   		console.log("Login Successful");
   		// Redirect to User Dashboard
   		window.location.href = "addevent.html";
-	});
+   });
 });
 
 function displayLoginError() {
@@ -121,7 +121,7 @@ registerForm.on("submit", function(event) {
   		console.log("Register Successful");
   		// Redirect to User Dashboard
   		window.location.href = "index.html";
-	});
+   });
 });
 
 function validPassword(pass) {
@@ -159,58 +159,58 @@ function displayRegisterError(val) {
 
 // Typewriter JS
 var TxtType = function(el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
 
-    TxtType.prototype.tick = function() {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
+TxtType.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
 
-        if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
 
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
-        var that = this;
-        var delta = 200 - Math.random() * 100;
+  var that = this;
+  var delta = 200 - Math.random() * 100;
 
-        if (this.isDeleting) { delta /= 2; }
+  if (this.isDeleting) { delta /= 2; }
 
-        if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-        }
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
 
-        setTimeout(function() {
-        that.tick();
-        }, delta);
-    };
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
 
-    window.onload = function() {
-        var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-type');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
-            }
-        }
+window.onload = function() {
+  var elements = document.getElementsByClassName('typewrite');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-type');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
+  }
         // INJECT CSS
         var css = document.createElement("style");
         css.type = "text/css";
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
-    };
+      };

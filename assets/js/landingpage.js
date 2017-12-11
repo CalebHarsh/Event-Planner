@@ -150,6 +150,8 @@ function loginUser(currentUser, userDetails) {
 
 	// Redirect to User Dashboard
 	//window.location.href = "dashboard.html";
+	// For now, redirect the user to addevent on login. Uncomment above and remove below when done testing.
+	window.location.href = "addevent.html";
 }
 
 function validPassword(pass) {

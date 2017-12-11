@@ -21,8 +21,10 @@ a:hover {
 
 .btn-primary {
   color: #f2efdf;
-  background-color: #9bbfab;
+  /*background-color: #9bbfab;*/
+  background-color: rgba(0,0,0,0);
   border-color: #9bbfab;
+  border-width: 2px
 }
 
 .btn-primary:hover,
@@ -52,7 +54,7 @@ body {
 }
 
 video#bgvid { 
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -101,7 +103,8 @@ video#bgvid {
 
 .masthead {
   margin-bottom: 2rem;
-  background-color: rgba(65, 54, 89, 0.5);
+  /*background-color: rgba(65, 54, 89, 0.5);*/
+  /*border-bottom: solid 1px rgba(155, 191, 171, 0.3);*/
   width: 100%;
 }
 
@@ -166,12 +169,28 @@ video#bgvid {
 }
 
 
-/* Footer */
+/* Scroll Down Arrow */
 
 .mastfoot {
   color: rgba(255,255,255,.5);
 }
 
+.break-point {
+  height: 45px;
+  background-color: #fff;
+  border-top: 5px solid #211426;
+}
+
+.scroll-down {
+  border-bottom: 1px solid #333;
+  padding-top: 10px;
+  height: 50px;
+  width: 50px;
+  background-color: rgba(65, 54, 89, 0.5);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
 
 /* Affix and center */
 
@@ -183,7 +202,7 @@ video#bgvid {
     z-index: 99;
   }
   .mastfoot {
-    position: fixed;
+    position: absolute;
     bottom: 0;
   }
   /* Start the vertical centering */
@@ -212,16 +231,16 @@ video#bgvid {
 /* Modal styling */
 
 .modal-content {
-  background-color: #211426;
+  background-color: #413659;
 }
 
 .modal-header {
-  border-color: #413659;
+  border-color: #211426;
 }
 
 .modal-header,
 .modal-body {
-  background-color: #211426;
+  background-color: #413659;
 }
 
 /* Input Form */
@@ -250,4 +269,46 @@ video#bgvid {
 #eventImg {
   width: 640px;
   height: 200px;
+}
+
+/* Features Section */
+
+.feature-header {
+  letter-spacing: 2px;
+}
+
+.steps h3 {
+  font-size: 4em;
+  margin-bottom: 1rem;
+}
+
+.steps h3:before {
+  margin-right: 23px; 
+}
+
+.steps h3:after {
+  margin-left: 23px; 
+}
+
+.steps h3:before,
+.steps h3:after {
+  border-bottom: 1px solid black;
+  content: '';
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.steps h4 {
+  font-size: 2em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.steps p {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  font-weight: lighter;
 }

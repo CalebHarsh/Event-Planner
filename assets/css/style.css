@@ -64,8 +64,9 @@ video#bgvid {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background-color: #333;
-    background-size: cover; 
+    /*background-color: #333;*/
+    background-image: url("../images/bg.png");
+    background-position: center;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -112,6 +113,10 @@ video#bgvid {
 
 .masthead-brand {
   margin-bottom: 0;
+}
+
+.masthead-brand a{
+  text-decoration: none;
 }
 
 .nav-masthead .nav-link {
@@ -238,5 +243,11 @@ video#bgvid {
 
 /* Results View */
 #results-column {
-  display: none;
+  /* Uncomment once finished testing */
+  /*display: none;*/
+}
+
+#eventImg {
+  width: 640px;
+  height: 200px;
 }

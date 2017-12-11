@@ -29,6 +29,32 @@ var usersList = database.ref("/users");
 
 var userLoginRef = database.ref("/loginUser");
 
+// Smooth Scroll script
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+       
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
 // Variable to hold the Login Form
 var loginForm = $("#login-form");
 
@@ -40,7 +66,8 @@ loginForm.on("submit", function (event) {
 	// Get Password input
 	var password = $("#passwordLogin").val().trim();
 	// Check credentials
-	usersList.once('value').then(function (snapshot) {
+
+  usersList.once('value').then(function (snapshot) {
 		// Get the object that holds username => password as an object
 		var accounts = snapshot.val();
 		console.log(accounts);
@@ -77,7 +104,8 @@ registerForm.on("submit", function (event) {
 	var password = $("#passwordRegister").val().trim();
 
 	// Check if username already exist
-	usersList.once('value').then(function (snapshot) {
+
+  usersList.once('value').then(function (snapshot) {
 		// Get the object that holds username => password as an object
 		var accounts = snapshot.val();
 		console.log(accounts);

@@ -2,10 +2,10 @@
  * Globals
  */
 
-/* Links */
-a,
-a:focus,
-a:hover {
+ /* Links */
+ a,
+ a:focus,
+ a:hover {
   color: #f2efdf;
 }
 
@@ -21,8 +21,10 @@ a:hover {
 
 .btn-primary {
   color: #f2efdf;
-  background-color: #9bbfab;
+  /*background-color: #9bbfab;*/
+  background-color: rgba(0,0,0,0);
   border-color: #9bbfab;
+  border-width: 2px
 }
 
 .btn-primary:hover,
@@ -40,8 +42,8 @@ a:hover {
  * Base structure
  */
 
-html,
-body {
+ html,
+ body {
   height: 100%;
   /*background-color: #333;*/
 }
@@ -52,20 +54,21 @@ body {
 }
 
 video#bgvid { 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #333;
-    background-size: cover; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  /*background-color: #333;*/
+  background-image: url("../images/bg.png");
+  background-position: center;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -75,7 +78,7 @@ video#bgvid {
   height: 100%; /* For at least Firefox */
   min-height: 100%;
   -webkit-box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
-          box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+  box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
 }
 .site-wrapper-inner {
   display: table-cell;
@@ -100,7 +103,8 @@ video#bgvid {
 
 .masthead {
   margin-bottom: 2rem;
-  background-color: rgba(65, 54, 89, 0.5);
+  /*background-color: rgba(65, 54, 89, 0.5);*/
+  /*border-bottom: solid 1px rgba(155, 191, 171, 0.3);*/
   width: 100%;
 }
 
@@ -112,6 +116,10 @@ video#bgvid {
 
 .masthead-brand {
   margin-bottom: 0;
+}
+
+.masthead-brand a{
+  text-decoration: none;
 }
 
 .nav-masthead .nav-link {
@@ -161,12 +169,28 @@ video#bgvid {
 }
 
 
-/* Footer */
+/* Scroll Down Arrow */
 
 .mastfoot {
   color: rgba(255,255,255,.5);
 }
 
+.break-point {
+  height: 45px;
+  background-color: #fff;
+  border-top: 5px solid #211426;
+}
+
+.scroll-down {
+  border-bottom: 1px solid #333;
+  padding-top: 10px;
+  height: 50px;
+  width: 50px;
+  background-color: rgba(65, 54, 89, 0.5);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
 
 /* Affix and center */
 
@@ -178,7 +202,7 @@ video#bgvid {
     z-index: 99;
   }
   .mastfoot {
-    position: fixed;
+    position: absolute;
     bottom: 0;
   }
   /* Start the vertical centering */
@@ -207,16 +231,16 @@ video#bgvid {
 /* Modal styling */
 
 .modal-content {
-  background-color: #211426;
+  background-color: #413659;
 }
 
 .modal-header {
-  border-color: #413659;
+  border-color: #211426;
 }
 
 .modal-header,
 .modal-body {
-  background-color: #211426;
+  background-color: #413659;
 }
 
 /* Input Form */
@@ -238,5 +262,53 @@ video#bgvid {
 
 /* Results View */
 #results-column {
-  display: none;
+  /* Uncomment once finished testing */
+  /*display: none;*/
+}
+
+#eventImg {
+  width: 640px;
+  height: 200px;
+}
+
+/* Features Section */
+
+.feature-header {
+  letter-spacing: 2px;
+}
+
+.steps h3 {
+  font-size: 4em;
+  margin-bottom: 1rem;
+}
+
+.steps h3:before {
+  margin-right: 23px; 
+}
+
+.steps h3:after {
+  margin-left: 23px; 
+}
+
+.steps h3:before,
+.steps h3:after {
+  border-bottom: 1px solid black;
+  content: '';
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.steps h4 {
+  font-size: 2em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.steps p {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  font-weight: lighter;
 }

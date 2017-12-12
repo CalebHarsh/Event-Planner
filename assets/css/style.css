@@ -354,9 +354,9 @@ video#bgvid {
 
 .carousel-item img {
   margin-top: 2rem;
-  height: 200px;
+  height: 250px;
   width: 200px;
-  border-radius: 50%;
+  border-radius: 5%;
   border: 2px solid #f2efdf;
   box-shadow: 0 6px 19px 0 rgba(0,0,0,.375);
 }

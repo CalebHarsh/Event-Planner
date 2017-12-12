@@ -313,3 +313,69 @@ video#bgvid {
   line-height: 1.2em;
   font-weight: lighter;
 }
+
+/* Footer Section */
+
+.social {
+  /*border-right: 1px solid #656f8c;*/
+  /*text-align: left;*/
+}
+
+.social a {
+  margin: 0 0.25rem;
+  color: #9bbfab;
+}
+
+.social p {
+  letter-spacing: 2px;
+  color: #656f8c;
+}
+
+.social .copyright {
+  color: #656f8c;
+}
+
+.subscribe p {
+  text-transform: uppercase;
+  color: #656f8c;
+}
+
+.subscribe .form-inline {
+  width: 365px;
+  margin: 0 auto;
+}
+
+.subscribe .form-control {
+  border-radius: 0;
+  margin-right: 0!important;
+  border-width: 0;
+  width: 289px;
+}
+
+.subsscribe .btn,
+.subscribe .btn-primary {
+  border-radius: 0;
+  border-width: 0px;
+  background-color: #9bbfab;
+}
+
+.services p {
+  text-align: left;
+  color: #656f8c;
+}
+
+.misc p {
+  color: #9bbfab;
+}
+
+.misc .to-top {
+  color: #656f8c;
+  margin-bottom: 2rem;
+}
+
+.misc .contact {
+  color: #656f8c;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}

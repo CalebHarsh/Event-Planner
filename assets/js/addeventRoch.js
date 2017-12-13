@@ -1,17 +1,17 @@
-var input = document.getElementById('location-input');
-var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
-google.maps.event.addListener(autocomplete, 'place_changed', function(){
-	var place = autocomplete.getPlace();
-})
-
-// Get the input form
-var inputForm = $("#input-form");
-
-// Globals to hold user input
-var eventName;
-var startDate;
-var endDate;
-var eventLocation;
+// var input = document.getElementById('location-input');
+// var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+// google.maps.event.addListener(autocomplete, 'place_changed', function(){
+// 	var place = autocomplete.getPlace();
+// })
+// 
+// // Get the input form
+// var inputForm = $("#input-form");
+// 
+// // Globals to hold user input
+// var eventName;
+// var startDate;
+// var endDate;
+// var eventLocation;
 
 // Set a listener for when user clicks submit
 inputForm.on("submit", function(event) {
@@ -143,7 +143,7 @@ function pixaBayCall(keyword) {
 
 function eventSearch (location){
 let loc = location
-let esURL = "http://api.eventful.com/rest/events/search?app_key=f9x6KV3zxtTcf9qv&location=" + loc + "&date=Future
+let esURL = "http://api.eventful.com/rest/events/search?app_key=f9x6KV3zxtTcf9qv&location=" + loc + "&date=Future"
 $.ajax ({
   url: esURL,
   method: "GET"

@@ -25,7 +25,10 @@ firebase.initializeApp(config);
 //get access to firebase database
 var database = firebase.database();
 
-var activeUser = "Caleb Harshman"
+var activeUser = "Caleb";
+
+var activeUserRef = database.ref("/loginUser/" + activeUser);
+var storUserDataRef = database.ref("users/" + activeUser)
 
 var activeUserEvents = "/loginUser/" + activeUser + "/events/";
 
@@ -35,7 +38,7 @@ function logNewEvent(eventObj) {
  
     var event = database.ref(activeUserEvents + eventObj.name);
 
-    event.set({eventObj});
+    event.set(eventObj);
 
 }
 
@@ -43,13 +46,14 @@ function getEventData (event_name) {
 
   database.ref(activeUserEvents + event_name).on("value", snap => {
     myEvent = snap.val();
+    console.log(myEvent);
     displayEvent(myEvent);
 
   });
 }
  
 function displayEvent(object) {
-  alert("Event Name:" + object.name + "/nEvent Location: + " + object.location + "/nEnvent Dates: " + object.start_date + " - " + object.end_date);
+  alert("Event Name: " + object.name + "\nEvent Location: + " + object.location + "\nEnvent Dates: " + object.start_date + " - " + object.end_date);
 }
 // Get the input form
 var inputForm = $("#input-form");
@@ -84,7 +88,21 @@ inputForm.on("submit", function (event) {
   // Now we make our API calls	
 });
 
-$("#")
+$("#my-events").on("click", function() {
+  getEventData()
+})
+
+
+  var userData; 
+  database.ref("/loginUser/" + activeUser).on("value", snap => {
+    userData = snap.val();
+    console.log(userData);
+    storUserDataRef.set(userData);
+  })
+  
+  activeUserRef.onDisconnect().remove();
+
+
 //Weather API
 
 //Eventbrite API

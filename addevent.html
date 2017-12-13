@@ -10,10 +10,21 @@
 	 crossorigin="anonymous">
 	<!-- Animate CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<!-- Weather Icons CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/weather-icons/css/weather-icons.css">
 	<!-- CSS Link -->
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 	<!-- Firebase Script  -->
 	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<!--Jquery link -->
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+	<!-- Moment JS -->
+	<script src="assets/js/moment.js"></script>
 </head>
 
 <body>
@@ -26,10 +37,9 @@
 
 			<div class="nav-container">
 
-				<div class="masthead clearfix">
+				<div class="masthead clearfix" style="background-color: rgba(65, 54, 89, 1)">
 					<div class="inner">
-						<h1 class="masthead-brand">
-							<span class="event-highlight">Event</span>Planner</h1>
+						<h1 class="masthead-brand"><a href="index.html"><span class="event-highlight">Event</span>Planner</a></h1>
 						<nav class="nav nav-masthead">
 							<a class="nav-link active" href="index.html">My Events</a>
 							<a class="nav-link" href="#">Add Event</a>
@@ -48,19 +58,19 @@
 						<form class="input-form" id="input-form">
 							<div class="form-group mb-4">
 								<label class="col-form-label" for="name-input">Name of Your Event</label>
-								<input type="text" class="form-control" id="name-input">
+								<input type="text" class="form-control" id="name-input" placeholder="My Event" required>
 							</div>
 							<div class="form-group mb-5">
 								<label class="col-form-label" for="start-date-input">Start Date</label>
-								<input type="date" class="form-control" id="start-date-input">
+								<input type="date" class="form-control" id="start-date-input" required>
 							</div>
 							<div class="form-group mb-5">
 								<label class="col-form-label" for="end-date-input">End Date</label>
-								<input type="date" class="form-control" id="end-date-input">
+								<input type="date" class="form-control" id="end-date-input" required>
 							</div>
 							<div class="form-group mb-5">
 								<label class="col-form-label" for="location-input">Location</label>
-								<input type="text" class="form-control" id="location-input">
+								<input type="text" class="form-control" id="location-input" required>
 							</div>
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</form>
@@ -69,8 +79,21 @@
 
 					<!-- Results Display -->
 					<div class="col-8" id="results-column">
-						<h2 class="content-label mb-0 mt-5 p-2">About Your Event</h2>
-						<div class="results-view" id="results-view"></div>
+						<h2 class="content-label mb-0 mt-5 p-2"><span id="resultsEventName">Name of Event</span></h2>
+						<div class="results-view" id="results-view">
+							<div class="row">
+								<div class="col-12">
+									<h2><span id="resultsEventLocation">Event Location</span></h2>
+									<img id="eventImg" src="http://via.placeholder.com/640x200">
+								</div>
+								<div class="col-7">
+									<h4>Weather on <span id="resultsEventDate">December, 16 2017</span></h4>
+								</div>
+								<div class="col-5">
+									<h4 style="text-align: left"><span id="resultsTemperature">55.01 °F</span>&nbsp;&nbsp;&nbsp;<i id="resultsIcon" class="wi wi-na"></i></h4>
+								</div>
+							</div>
+						</div>
 					</div>
 					<!-- End Results Display -->
 				</div>
@@ -83,15 +106,15 @@
 
 
 	<!-- Bootstrap jQuery Link -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	 crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-	 crossorigin="anonymous"></script>
-	<!-- Link Javascript File -->
-	<script type="text/javascript" src="assets/js/app.js"></script>
-	<script type="text/javascript" src="assets/js/addevent.js"></script>
-</body>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+		crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+		crossorigin="anonymous"></script>
+		<!-- Link Javascript File -->
+		<!-- Using app.js -->
+		<script type="text/javascript" src="assets/js/app.js"></script>
+	</body>
 
-</html>
+	</html>

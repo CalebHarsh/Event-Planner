@@ -8,26 +8,31 @@
 	<!-- Bootstrap CDN link -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
+	<!-- Animate CSS -->
+	<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<!-- CSS Link -->
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 	<!-- Firebase Script  -->
 	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-  <!--Jquery link -->
-<script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-<!--Roch Java link -->
-  <script src="assets/js/rochjava.js"></script>
+	<!--Jquery link -->
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
+	<!-- Font Awesome -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+	<link rel="stylesheet" href="animate.min.css">
+	<h1 class="animated infinite bounce">Plan today!</h1>
 </head>
 
 <body>
 	<!-- Background Video -->
 	<video playsinline autoplay muted loop id="bgvid">
 		<source src="assets/images/new-revised.mp4" type="video/mp4">
-	</video>
+		</video>
 
-		<div class="site-wrapper">
+		<div class="site-wrapper" id="landing">
 
 			<div class="site-wrapper-inner">
 
@@ -37,8 +42,10 @@
 						<div class="inner">
 							<h1 class="masthead-brand"><span class="event-highlight">Event</span>Planner</h1>
 							<nav class="nav nav-masthead">
-								<a class="nav-link active" href="index.html">Home</a>
-								<a class="nav-link" href="#">Features</a>
+								<a class="nav-link" href="#landing">Home</a>
+								<a class="nav-link" href="#feature">Features</a>
+								<a class="nav-link" href="#team">Team</a>
+								<a class="nav-link" href="#" data-toggle="modal" data-target="#signInModal">Sign In</a>
 							</nav>
 						</div>
 					</div>
@@ -48,32 +55,188 @@
 
 					<div class="inner cover">
 						<h1 class="cover-heading">Plan your next
-							<a href="" class="typewrite event-highlight" data-period="2000" data-type='[ "Event.", "Vacation.", "Day Off.", "Getaway." ]'>
+							<span class="typewrite event-highlight" data-period="2000" data-type='[ "Honeymoon.", "Event.", "Vacation.", "Day Off.", "Getaway." ]'>
 								<span class="wrap"></span>
-							</a>
+							</span>
 						</h1>
-						<p class="lead">Whether its a vacation, a relaxing day off, or your next staycation. Plan your next Event wisely with EventPlanner.</p>
+						<p class="lead"><i>Whether its a vacation, a relaxing day off, or your next staycation. Plan your next Event wisely with EventPlanner.</i></p>
 						<p class="lead">
 							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#signInModal">
+							<!-- <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#signInModal">
 								Sign-In
-							</button>
+							</button> -->
 							<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#registerModal">
-								Register
+								Get Started
 							</button>
 						</p>
 					</div>
 
 					<div class="mastfoot">
 						<div class="inner">
-							<p>&copy; 2017 EventPlanner</p>
+							<p class="scroll-down animated pulse infinite"><a href="#feature"><i class="fas fa-angle-double-down fa-2x"></i></a></p>
 						</div>
 					</div>
 
 				</div>
-
 			</div>
 
+		</div>
+		<div class="break-point"></div>
+		<!-- FEATURES -->
+		<div class="container" style="display: table; background-color: #fff; color: #211426;" id="feature">
+			<div class="row">
+				<div class="col-12"><h2 class="feature-header mt-3 mb-5">HOW IT WORKS</h2></div>
+			</div>
+			<div class="row mb-5">
+				<div class="col-4 steps">
+					<h3>1</h3>
+					<h4>Explore</h4>
+					<p>See what is happening anywhere, anytime of your choosing to see if it fits your Event.</p>
+				</div>
+				<div class="col-4 steps">
+					<h3>2</h3>
+					<h4>Decide</h4>
+					<p>Choose from different Events available around the area on the days you have chosen.</p>
+				</div>
+				<div class="col-4 steps">
+					<h3>3</h3>
+					<h4>Share</h4>
+					<p>Save your Event and sync it with your Calendar to share with anyone.<br>It's that simple.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- TEAM -->
+		<div id="team" class="team" style="display: table; width: 100%; background-color: #fff; color: #211426;">
+			<div class="jumbotron jumbotron-fluid">
+				<div class="container-fluid">
+					<h2 class="mb-5 mt-3">Meet The Team</h2>
+					<div id="carouselExampleIndicators" class="carousel slide lead" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item">
+								<div class="d-block w-100" style="height: 300px;">
+									<div class="row">
+										<div class="col-4">
+											<img src="https://jjdavid14.github.io/Bootstrap-Portfolio/assets/images/me.jpg">
+										</div>
+										<div class="col-7">
+											<h3>Jamie David</h3>
+											<p>Lorem ipsum dolor sit amet, cum aliquam alienum reprimique eu, pri explicari mediocritatem ad. Intellegat adipiscing sit ut, perpetua sadipscing quo ei. Referrentur disputationi ne his. Et eum summo scripta aliquam, mazim latine percipitur sed eu. Est in aperiam efficiantur.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item active">
+								<div class="d-block w-100" style="height: 300px;">
+									<div class="row">
+										<div class="col-7 offset-1">
+											<h3>Caleb Harshman</h3>
+											<p>Lorem ipsum dolor sit amet, cum aliquam alienum reprimique eu, pri explicari mediocritatem ad. Intellegat adipiscing sit ut, perpetua sadipscing quo ei. Referrentur disputationi ne his. Et eum summo scripta aliquam, mazim latine percipitur sed eu. Est in aperiam efficiantur.
+											</p>
+										</div>
+										<div class="col-4">
+											<img src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-1/p240x240/14568134_1211355772257211_3020300397337095723_n.jpg?oh=33fbfd72854f50e451f496526a038f07&oe=5AD47EA2">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="d-block w-100" style="height: 300px;">
+									<div class="d-block w-100" style="height: 300px;">
+										<div class="row">
+											<div class="col-4">
+												<img src="https://rochmirabeau.github.io/Basic-Portfolio/assets/images/profileimage.jpg">
+											</div>
+											<div class="col-7">
+												<h3>Roch Mirabeau</h3>
+												<p>Lorem ipsum dolor sit amet, cum aliquam alienum reprimique eu, pri explicari mediocritatem ad. Intellegat adipiscing sit ut, perpetua sadipscing quo ei. Referrentur disputationi ne his. Et eum summo scripta aliquam, mazim latine percipitur sed eu. Est in aperiam efficiantur.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="d-block w-100" style="height: 300px;">
+									<div class="row">
+										<div class="col-7 offset-1">
+											<h3>Ivan Leonard</h3>
+											<p>Lorem ipsum dolor sit amet, cum aliquam alienum reprimique eu, pri explicari mediocritatem ad. Intellegat adipiscing sit ut, perpetua sadipscing quo ei. Referrentur disputationi ne his. Et eum summo scripta aliquam, mazim latine percipitur sed eu. Est in aperiam efficiantur.
+											</p>
+										</div>
+										<div class="col-4">
+											<img src="https://avatars3.githubusercontent.com/u/31164505?s=460&v=4">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- SPECIAL THANKS -->
+		<div class="thanks container-fluid">
+			<div class="row">
+				<div class="col-3">
+					<img src="assets/images/trilogy-logo.png">
+				</div>
+				<div class="col-3">
+					<img src="assets/images/uofa-logo.png">
+				</div>
+				<div class="col-3">
+					<img src="assets/images/eventbrite-logo.png">
+				</div>
+				<div class="col-3">
+					<img src="assets/images/darksky-logo.png">
+				</div>
+			</div>
+		</div>
+
+		<!-- FOOTER -->
+		<div class="footer" style="display: table; width: 100%; height: 250px; background-color: #413659;" id="footer">
+			<div class="container mt-5">
+				<div class="row">
+					<div class="col-3 social">
+						<p>FOLLOW US</p>
+						<a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+						<a href="#"><i class="fab fa-twitter-square fa-2x"></i></a>
+						<a href="#"><i class="fab fa-google-plus-square fa-2x"></i></a>
+						<a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+						<a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+						<div class="copyright mt-5">
+							&copy; EventPlanner 2017.<br> All Rights Reserved.
+						</div>
+					</div>
+					<div class="col-6 subscribe">
+						<p>Subscribe to receive news and updates from EventPlanner.</p>
+						<form class="form-inline">
+							<label class="sr-only" for="inlineFormInputName2">Email</label>
+							<input type="email" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Your Email Address">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+					<div class="col-1 services">
+						<p>Features</p>
+						<p>Team</p>
+						<p>Register</p>
+						<p>Sign In</p>
+					</div>
+					<div class="col-2 misc">
+						<p class="to-top"><a href="#landing">Back To Top</a></p>
+						<p class="contact">Contact</p>
+						<p>info@eventplanner.com</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- Login Modal -->
@@ -130,14 +293,14 @@
 
 
 		<!-- Bootstrap jQuery Link -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-		crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-		crossorigin="anonymous"></script>
-		<!-- Link Javascript File -->
-		<script type="text/javascript" src="assets/js/landingpage.js"></script>
-	</body>
+		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script> -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+			crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+			crossorigin="anonymous"></script>
+			<!-- Link Javascript File -->
+			<script type="text/javascript" src="assets/js/landingpage.js"></script>
+		</body>
 
-	</html>
+		</html>

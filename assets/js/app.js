@@ -27,26 +27,29 @@ var database = firebase.database();
 
 var activeUser = "Caleb Harshman"
 
-var activeUserEvents = database.ref("/loginUser/" + activeUser + "/events");
+var activeUserEvents = "/loginUser/" + activeUser + "/events/";
 
 
 
 function logNewEvent(eventObj) {
-  activeUserEvents.once("value", function (snapshot) {
+ 
+    var event = database.ref(activeUserEvents + eventObj.name);
 
-    var events = snapshot.val();
+    event.set({eventObj});
 
-    events[eventObj.name] = {
-      "Starting": eventObj.start_date,
-      "Ending": eventObj.end_date,
-      "Location": eventObj.location
-    }
+}
 
-    console.log(activeUserEvents[eventObj.name]);
+function getEventData (event_name) {
 
-    activeUserEvents.set(events);
+  database.ref(activeUserEvents + event_name).on("value", snap => {
+    myEvent = snap.val();
+    displayEvent(myEvent);
+
   });
-
+}
+ 
+function displayEvent(object) {
+  alert("Event Name:" + object.name + "/nEvent Location: + " + object.location + "/nEnvent Dates: " + object.start_date + " - " + object.end_date);
 }
 // Get the input form
 var inputForm = $("#input-form");
@@ -81,7 +84,7 @@ inputForm.on("submit", function (event) {
   // Now we make our API calls	
 });
 
-
+$("#")
 //Weather API
 
 //Eventbrite API

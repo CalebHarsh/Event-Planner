@@ -71,7 +71,10 @@ loginForm.on("submit", function (event) {
 		// Get the object that holds username => password as an object
 		var accounts = snapshot.val();
 		console.log(accounts);
-		if (!(username in accounts)) {
+		if(!accounts) {
+			displayLoginError();
+			return;
+		}else if (!(username in accounts)) {
 			console.log(username + " not found.");
 			displayLoginError();
 			return;
@@ -84,7 +87,7 @@ loginForm.on("submit", function (event) {
 		console.log("Login Successful");
 
 		//logins in using the username and user's info
-		loginUser(username, accounts[username]);
+		loginUser(username);
 	});
 });
 
@@ -109,7 +112,9 @@ registerForm.on("submit", function (event) {
 		// Get the object that holds username => password as an object
 		var accounts = snapshot.val();
 		console.log(accounts);
-		if (username in accounts) {
+		if(!accounts) {
+			
+		}else if (username in accounts) {
 			console.log(username + " already taken.");
 			displayRegisterError("user");
 			return;
@@ -120,38 +125,40 @@ registerForm.on("submit", function (event) {
 			return;
 		}
 
-		var toInsert = accounts;
-		console.log(toInsert);
-		toInsert[username] = {
+		var toInsert = database.ref("/users/" + username);
+		
+		toInsert.set({
+			"Username": username,
 			"Password": password
-		};
-		console.log(toInsert);
-		usersList.set(toInsert);
+		});
+		
 
 		console.log("Register Successful");
 
 		//Logins using the username and user's info
-		loginUser(username, toInsert[username]);
+		loginUser(username);
 	});
 });
 
-function loginUser(currentUser, userDetails) {
+function loginUser(currentUser) {
 
 	//Adds User to login branch
-	userLoginRef.once("value").then(function (snap) {
+	database.ref("/users/" + currentUser).once("value").then(function (snap) {
 
-		var userOnline = snap.val();
+		userDetails = snap.val();
+		console.log(userDetails);
 
-		userOnline[currentUser] = userDetails
+		userLoginRef = database.ref("/loginUser/" + currentUser);
+		userLoginRef.set(userDetails);
 
-		userLoginRef.set(userOnline);
+		//userLoginRef.set(userOnline);
 
 	});
 
 	// Redirect to User Dashboard
 	//window.location.href = "dashboard.html";
 	// For now, redirect the user to addevent on login. Uncomment above and remove below when done testing.
-	window.location.href = "addevent.html";
+	//window.location.href = "addevent.html";
 }
 
 function validPassword(pass) {

@@ -14,7 +14,7 @@
 	<!-- CSS Link -->
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 	<!-- Firebase Script  -->
-	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<!-- <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script> -->
 	<!--Jquery link -->
 	<script
 	src="https://code.jquery.com/jquery-3.2.1.js"
@@ -22,6 +22,11 @@
 	crossorigin="anonymous"></script>
 	<!-- Font Awesome -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+	<!-- Import and configure the Firebase SDK -->
+	<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+	<!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+	<script src="/__/firebase/4.6.2/firebase.js"></script>
+	<script src="/__/firebase/init.js"></script>
 </head>
 
 <body>
@@ -43,7 +48,16 @@
 								<a class="nav-link" href="#landing">Home</a>
 								<a class="nav-link" href="#feature">Features</a>
 								<a class="nav-link" href="#team">Team</a>
-								<a class="nav-link" href="#" data-toggle="modal" data-target="#signInModal">Sign In</a>
+								<a class="nav-link" id="basic-sign-in" href="#" data-toggle="modal" data-target="#signInModal">Sign In</a>
+								<div hidden class="dropdown show nav-link" id="user-name-toggle">
+									<a href="#" role="button" id="user-name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									</a>
+									<div class="dropdown-menu" aria-labelledby="user-name">
+										<a class="dropdown-item" href="#">Profile</a>
+										<!-- <a class="dropdown-item" id="sign-out" href="#">Sign Out</a> -->
+									</div>
+								</div>
+								<!-- <div hidden id="user-name" class="nav-link"></div> -->
 							</nav>
 						</div>
 					</div>
@@ -60,9 +74,9 @@
 						<p class="lead"><i>Whether its a vacation, a relaxing day off, or your next staycation. Plan your next Event wisely with EventPlanner.</i></p>
 						<p class="lead">
 							<!-- Button trigger modal -->
-							<!-- <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#signInModal">
-								Sign-In
-							</button> -->
+							<button type="button" class="btn btn-lg btn-primary" id="sign-out">
+								Sign-In with Google
+							</button>
 							<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#registerModal">
 								Get Started
 							</button>
@@ -268,19 +282,29 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="registerLabel">Register</h5>
+						<h5 class="modal-title" id="registerLabel">Sign up with <span class="event-highlight" id="sign-in">Google</span></h5>
 					</div>
 					<div class="modal-body">
 						<h6 class="login-error text-danger" id="registerError">&nbsp;</h6>
 						<!-- Register Form -->
 						<form class="container" id="register-form">
+							<div class="form-row">
+								<div class="col">
+									<label for="firstnameRegister">First Name</label>
+									<input type="text" class="form-control" id="firstnameRegister" placeholder="First name">
+								</div>
+								<div class="col">
+									<label for="lastnameRegister">Last Name</label>
+									<input type="text" class="form-control" id="lastnameRegister" placeholder="Last name">
+								</div>
+							</div>
 							<div class="form-group">
-								<label class="col-form-label" for="usernameRegister">Username</label>
-								<input type="text" class="form-control" id="usernameRegister" placeholder="Username" required>
+								<label class="col-form-label" for="usernameRegister">Email</label>
+								<input type="email" class="form-control" id="usernameRegister" placeholder="Username" required>
 							</div>
 							<div class="form-group">
 								<label class="col-form-label" for="passwordRegister">Password</label>
-								<input type="password" class="form-control" id="passwordRegister" placeholder="Password" required>
+								<input type="password" class="form-control" id="passwordRegister" placeholder="Create a Password" required>
 							</div>
 							<button class="btn btn-primary" type="submit">Register</button>
 						</form>

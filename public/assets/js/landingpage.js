@@ -1,12 +1,12 @@
 // // Initialize Firebase
-var config = {
-	apiKey: "AIzaSyCsJBnT5G6vN1tFi3oamE0cNXkvM0NNUcM",
-	authDomain: "event-planner-54834.firebaseapp.com",
-	databaseURL: "https://event-planner-54834.firebaseio.com",
-	projectId: "event-planner-54834",
-	storageBucket: "event-planner-54834.appspot.com",
-	messagingSenderId: "803664413287"
-};
+// var config = {
+// 	apiKey: "AIzaSyCsJBnT5G6vN1tFi3oamE0cNXkvM0NNUcM",
+// 	authDomain: "event-planner-54834.firebaseapp.com",
+// 	databaseURL: "https://event-planner-54834.firebaseio.com",
+// 	projectId: "event-planner-54834",
+// 	storageBucket: "event-planner-54834.appspot.com",
+// 	messagingSenderId: "803664413287"
+// };
 
 // MY LOCALHOST TESTING
 // Initialize Firebase
@@ -20,14 +20,102 @@ var config = {
 //   };
 
 //config firebase
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
+
+function EventPlanner() {
+	console.log("CALLED EventPlanner()");
+	this.userName = document.getElementById('user-name');
+	this.userNameToggle = document.getElementById('user-name-toggle');
+	this.signInButton = document.getElementById('sign-in');
+	this.basicSignInButton = document.getElementById('basic-sign-in');
+	this.signOutButton = document.getElementById('sign-out');
+
+	this.signInButton.addEventListener('click', this.signIn.bind(this));
+	this.signOutButton.addEventListener('click', this.signOut.bind(this));
+
+	this.initFirebase();
+}
+
+// Sets up shortcuts to Firebase features and initiate firebase auth.
+EventPlanner.prototype.initFirebase = function() {
+  // Shortcuts to Firebase SDK features.
+  this.auth = firebase.auth();
+  this.database = firebase.database();
+  this.storage = firebase.storage();
+  // Initiates Firebase auth and listen to auth state changes.
+  this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+};
+
+// Signs in
+EventPlanner.prototype.signIn = function() {
+  // Sign in Firebase using popup auth and Google as the identity provider.
+  var provider = new firebase.auth.GoogleAuthProvider();
+  this.auth.signInWithPopup(provider);
+};
+
+// Signs-out.
+EventPlanner.prototype.signOut = function() {
+  // Sign out of Firebase.
+  this.auth.signOut();
+};
+
+// Triggers when the auth state change for instance when the user signs-in or signs-out.
+EventPlanner.prototype.onAuthStateChanged = function(user) {
+  if (user) { // User is signed in!
+    // Get profile pic and user's name from the Firebase user object.
+    var profilePicUrl = user.photURL;
+    var userName = user.displayName;
+    console.log(typeof userName);
+    if(userName == "null") {
+    	console.log("userName is null");
+    	userName = user.email;
+    }
+
+    console.log(user);
+
+    // Set the user's profile pic and name.
+    // this.userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
+    this.userName.textContent = userName;
+
+    // Show user's profile and sign-out button.
+    this.userNameToggle.removeAttribute('hidden');
+    // this.userPic.removeAttribute('hidden');
+    // this.signOutButton.removeAttribute('hidden');
+
+    // Hide sign-in buttons.
+    // this.signInButton.setAttribute('hidden', 'true');
+    this.basicSignInButton.setAttribute('hidden', 'true');
+
+    // // We load currently existing Events.
+    // this.loadEvents();
+
+    console.log("PIC URL: here" + profilePicUrl);
+    console.log("Username: " + userName);
+
+  } else { // User is signed out!
+    // Hide user's profile and sign-out button.
+    this.userNameToggle.setAttribute('hidden', 'true');
+    // this.userPic.setAttribute('hidden', 'true');
+    // this.signOutButton.setAttribute('hidden', 'true');
+
+    // Show sign-in button.
+    this.signInButton.removeAttribute('hidden');
+    this.basicSignInButton.removeAttribute('hidden');
+    console.log("User Not Logged In.")
+}
+};
+
+console.log("TEST");
+
+window.eventPlanner = new EventPlanner();
+
 
 //get access to firebase database
-var database = firebase.database();
+// var database = firebase.database();
 
-var usersList = database.ref("/users");
+// var usersList = database.ref("/users");
 
-var userLoginRef = database.ref("/loginUser");
+// var userLoginRef = database.ref("/loginUser");
 
 // Smooth Scroll script
 $(document).ready(function(){
@@ -45,14 +133,14 @@ $(document).ready(function(){
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
-        scrollTop: $(hash).offset().top
+      	scrollTop: $(hash).offset().top
       }, 800, function(){
-       
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
-      });
+    });
     } // End if
-  });
+});
 });
 
 // Variable to hold the Login Form
@@ -67,7 +155,7 @@ loginForm.on("submit", function (event) {
 	var password = $("#passwordLogin").val().trim();
 	// Check credentials
 
-  usersList.once('value').then(function (snapshot) {
+	usersList.once('value').then(function (snapshot) {
 		// Get the object that holds username => password as an object
 		var accounts = snapshot.val();
 		console.log(accounts);
@@ -103,36 +191,55 @@ registerForm.on("submit", function (event) {
 	// Get Password input
 	var password = $("#passwordRegister").val().trim();
 
-	// Check if username already exist
-
-  usersList.once('value').then(function (snapshot) {
-		// Get the object that holds username => password as an object
-		var accounts = snapshot.val();
-		console.log(accounts);
-		if (username in accounts) {
-			console.log(username + " already taken.");
-			displayRegisterError("user");
-			return;
-		}
-		if (!validPassword(password)) {
+	if (!validPassword(password)) {
 			console.log("password not valid.");
 			displayRegisterError("pass");
 			return;
-		}
+	}
 
-		var toInsert = accounts;
-		console.log(toInsert);
-		toInsert[username] = {
-			"Password": password
-		};
-		console.log(toInsert);
-		usersList.set(toInsert);
+	firebase.auth().createUserWithEmailAndPassword(username, password)
+	.catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  if (errorCode == 'auth/email-already-in-use') {
+    alert('Email already registerd.');
+  } else {
+    alert(errorMessage);
+  }
+  // ...
+});
 
-		console.log("Register Successful");
+	// Check if username already exist
 
-		//Logins using the username and user's info
-		loginUser(username, toInsert[username]);
-	});
+ //  usersList.once('value').then(function (snapshot) {
+	// 	// Get the object that holds username => password as an object
+	// 	var accounts = snapshot.val();
+	// 	console.log(accounts);
+	// 	if (username in accounts) {
+	// 		console.log(username + " already taken.");
+	// 		displayRegisterError("user");
+	// 		return;
+	// 	}
+	// 	if (!validPassword(password)) {
+	// 		console.log("password not valid.");
+	// 		displayRegisterError("pass");
+	// 		return;
+	// 	}
+
+	// 	// var toInsert = accounts;
+	// 	// console.log(toInsert);
+	// 	// toInsert[username] = {
+	// 	// 	"Password": password
+	// 	// };
+	// 	// console.log(toInsert);
+	// 	// usersList.set(toInsert);
+
+	// 	console.log("Register Successful");
+
+	// 	//Logins using the username and user's info
+	// 	// loginUser(username, toInsert[username]);
+	// });
 });
 
 function loginUser(currentUser, userDetails) {

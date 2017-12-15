@@ -92,6 +92,9 @@ EventPlanner.prototype.onAuthStateChanged = function(user) {
         console.log("PIC URL: " + profilePicUrl);
         console.log("Username: " + userName);
 
+        // Redirect to User Dashboard
+        window.location.href = "dashboard.html";
+
     }
     // User is signed out
     else {

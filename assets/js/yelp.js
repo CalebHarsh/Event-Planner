@@ -1,5 +1,5 @@
-let token = "wZvyZC1_O8ICJQ2dO3N9ICI8PrffGCTMPI20txzJBGgaVJ1QED9FU4UYu1KU62XTFG-L8shOc5ww93R-oSf3HQt1BuRmhcSuZKwETdohvWRrWsgpzN8dAjqYANYyWnYx"
-function roch (x) { console.log(x)}
+let token = "wZvyZC1_O8ICJQ2dO3N9ICI8PrffGCTMPI20txzJBGgaVJ1QED9FU4UYu1KU62XTFG-L8shOc5ww93R-oSf3HQt1BuRmhcSuZKwETdohvWRrWsgpzN8dAjqYANYyWnYx";
+//function roch (x) { console.log(x)}
 
 //function to get events
 //this function takes latitude, longitude, start & end time in Unix Timestamp, and callback function
@@ -8,8 +8,8 @@ function roch (x) { console.log(x)}
 //________________________
 
 function yelpSearch(latitude, longitude, start, end, cb) {
-	var results = []
-	let search = new Object() 
+	var results = [];
+	let search = new Object();
 	search.latitude = latitude;
 	search.longitude = longitude;
 	search.start = start;
@@ -17,8 +17,8 @@ function yelpSearch(latitude, longitude, start, end, cb) {
 	
 	console.log(search);		
 
-let eventsResults = {}
-let restaurantResults = {}
+let eventsResults = {};
+let restaurantResults = {};
 			
 
 var eventsReturn = {
@@ -45,26 +45,26 @@ var restaurantsReturn = {
 }
 
 
-console.log(eventsReturn.url)
+console.log(eventsReturn.url);
 
 
-console.log(restaurantsReturn.url)
+console.log(restaurantsReturn.url);
 
  $.ajax(eventsReturn).then(function (response) {
    console.log(response);
-   eventsResults = response
-   results.push(eventsResults)
-	return $.ajax(restaurantsReturn)
+   eventsResults = response;
+   results.push(eventsResults);
+	return $.ajax(restaurantsReturn);
  })
 	.fail(function (error) {
-	console.log(error)
+	console.log(error);
 	
 })
 	.done(function (completion) {
    console.log(completion);
-   restaurantsResults = completion
-   results.push(restaurantsResults)
-	cb(results)
+   restaurantsResults = completion;
+   results.push(restaurantsResults);
+	cb(results);
  });
 
 

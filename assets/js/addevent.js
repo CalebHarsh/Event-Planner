@@ -113,10 +113,21 @@ function locationAjax(location){
 
 		// Parse the startDate
 		startDate = moment(startDate);
+		// Get startDate in Unix Timestamp
+		var unixStartDate = startDate.format("X");
+
 		startDate = startDate.format();
 
 		// API call to Dark Sky Api to get weather info on startDate
-		weatherAjax(latitude, longitude, startDate);
+		weatherAjax(latitude, longitude, startDate, endDate);
+
+		// Get endDate in Unix Timestamp
+		var unixEndDate = moment(endDate).format("X");
+
+		console.log("Unix Start: " + unixStartDate);
+		console.log("Unix End: " + unixEndDate);
+
+		yelpSearch(latitude, longitude, unixStartDate, unixEndDate, showEvents);
   });
 }
 
@@ -137,3 +148,28 @@ function pixaBayCall(keyword) {
 	});
 }
 
+
+function showEvents(arrayOfEvents) {
+	console.log("In showEvents!");
+	console.log(arrayOfEvents);
+
+	// Store the Events
+	var events = arrayOfEvents[0];
+	// Store the restaurants
+	var restaurants = arrayOfEvents[1];
+
+	// Get 3 Events to dispay
+	for(var i = 0; i < 3; i++) {
+		var currentEvent = events.events[i];
+		var eventName = currentEvent.name;
+		var eventImg = currentEvent.image_url;
+		var eventUrl = currentEvent.event_site_url;
+
+		// Change the event#-name in html
+		$("#event" + i + "-name").text(eventName);
+		// Change the event#-url in html
+		$("#event" + i + "-url").attr("href", eventUrl);
+		// Change the event#-img in html
+		$("#event" + i + "-img").attr("src", eventImg);
+	}
+}

@@ -165,7 +165,7 @@ function showEvents(arrayOfEvents) {
 		var eventImg = currentEvent.image_url;
 		var eventUrl = currentEvent.event_site_url;
 
-		var currentRestaurant = events.businesses[i];
+		var currentRestaurant = restaurants.businesses[i];
 		var restaurantName = currentRestaurant.name;
 		var restaurantImg = currentRestaurant.image_url;
 		var restaurantUrl = currentRestaurant.url;

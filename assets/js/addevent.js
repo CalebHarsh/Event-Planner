@@ -165,11 +165,23 @@ function showEvents(arrayOfEvents) {
 		var eventImg = currentEvent.image_url;
 		var eventUrl = currentEvent.event_site_url;
 
+		var currentRestaurant = events.businesses[i];
+		var restaurantName = currentRestaurant.name;
+		var restaurantImg = currentRestaurant.image_url;
+		var restaurantUrl = currentRestaurant.url;
+
 		// Change the event#-name in html
 		$("#event" + i + "-name").text(eventName);
 		// Change the event#-url in html
 		$("#event" + i + "-url").attr("href", eventUrl);
 		// Change the event#-img in html
 		$("#event" + i + "-img").attr("src", eventImg);
+		
+		// Change the restaurant#-name in html
+		$("#restaurant" + i + "-name").text(restaurantName);
+		// Change the restaurant#-url in html
+		$("#restaurant" + i + "-url").attr("href", restaurantUrl);
+		// Change the restaurant#-img in html
+		$("#restaurant" + i + "-img").attr("src", restaurantImg);
 	}
 }

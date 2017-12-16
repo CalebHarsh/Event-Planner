@@ -157,6 +157,19 @@ video#bgvid {
   border-bottom-color: #f2efdf;
 }
 
+#user-pic {
+  top: -3px;
+  position: relative;
+  display: inline-block;
+  background-image: url('../images/profile_placeholder.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+  border-radius: 20px;
+  margin: 0 1rem;
+}
+
 @media (min-width: 48em) {
   .masthead-brand {
     float: left;

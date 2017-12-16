@@ -1,6 +1,6 @@
 var input = document.getElementById('location-input');
-var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
-google.maps.event.addListener(autocomplete, 'place_changed', function(){
+var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
+google.maps.event.addListener(autocomplete, 'place_changed', function () {
 	var place = autocomplete.getPlace();
 })
 
@@ -14,7 +14,7 @@ var endDate;
 var eventLocation;
 
 // Set a listener for when user clicks submit
-inputForm.on("submit", function(event) {
+inputForm.on("submit", function (event) {
 	event.preventDefault();
 	$("#results-column").css("display", "block");
 	$("#results-column").addClass("animated bounceInRight");
@@ -64,29 +64,29 @@ function getWeatherAPIURL(lat, long, time) {
 
 function weatherAjax(lat, long, time) {
 	$.ajax({
-	  url:	getWeatherAPIURL(lat, long, time),
-	  method: "GET"
-	}).done(function(response) {
-	   console.log("WEATHER AJAX RESPONSE");
-	   console.log(response);
+		url: getWeatherAPIURL(lat, long, time),
+		method: "GET"
+	}).done(function (response) {
+		console.log("WEATHER AJAX RESPONSE");
+		console.log(response);
 
-	   // Get the date of the response
-	   var responseDate = response.currently.time;
-	   responseDate = moment(time).format("MMMM Do YYYY");
-	   console.log("RESPONSE DATE");
-	   console.log(responseDate);
-	   // Get the high temperature from the response
-	   var highTemperature = response.daily.data[0].apparentTemperatureHigh;
-	   // Get the low temperature from the response
-	   var lowTemperature = response.daily.data[0].apparentTemperatureLow;
-	   // Get the temperature icon from the response
-	   var icon = response.currently.icon;
+		// Get the date of the response
+		var responseDate = response.currently.time;
+		responseDate = moment(time).format("MMMM Do YYYY");
+		console.log("RESPONSE DATE");
+		console.log(responseDate);
+		// Get the high temperature from the response
+		var highTemperature = response.daily.data[0].apparentTemperatureHigh;
+		// Get the low temperature from the response
+		var lowTemperature = response.daily.data[0].apparentTemperatureLow;
+		// Get the temperature icon from the response
+		var icon = response.currently.icon;
 
-	   // Show our weather results to the page
-	   showWeatherResults(eventName, responseDate, eventLocation, highTemperature, lowTemperature);
-	   // Show the weather icon
-	   showWeatherIcon(icon);
-  });
+		// Show our weather results to the page
+		showWeatherResults(eventName, responseDate, eventLocation, highTemperature, lowTemperature);
+		// Show the weather icon
+		showWeatherIcon(icon);
+	});
 }
 
 function locationSearch(location) {
@@ -98,11 +98,11 @@ function locationSearch(location) {
 	return gUrl;
 }
 
-function locationAjax(location){
+function locationAjax(location) {
 	$.ajax({
-	  url:	locationSearch(location),
-	  method: "GET"
-	}).done(function(response) {
+		url: locationSearch(location),
+		method: "GET"
+	}).done(function (response) {
 		console.log(response);
 		// Get the latitude of the location from the response
 		//var latitude = response.city.coord.lat;
@@ -128,7 +128,7 @@ function locationAjax(location){
 		console.log("Unix End: " + unixEndDate);
 
 		yelpSearch(latitude, longitude, unixStartDate, unixEndDate, showEvents);
-  });
+	});
 }
 
 function pixaBayCall(keyword) {
@@ -139,12 +139,15 @@ function pixaBayCall(keyword) {
 	$.ajax({
 		url: query,
 		method: "GET"
-	}).done(function(response) {
+	}).done(function (response) {
 		console.log(response);
 		// Store the image url from the response
 		var src = response.hits[0].webformatURL;
 		// Change the src of the eventImg to the var src
-		$("#eventImg").attr("src", src);
+		// $("#eventImg").attr("src", src);
+		console.log(src);
+		$("#bgvid").css("background-image", "url("+src+")")
+		$("#bgvid").css("background-size", "cover")
 	});
 }
 
@@ -159,7 +162,7 @@ function showEvents(arrayOfEvents) {
 	var restaurants = arrayOfEvents[1];
 
 	// Get 3 Events to dispay
-	for(var i = 0; i < 3; i++) {
+	for (var i = 0; i < 3; i++) {
 		var currentEvent = events.events[i];
 		var eventName = currentEvent.name;
 		var eventImg = currentEvent.image_url;

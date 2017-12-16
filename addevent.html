@@ -17,10 +17,7 @@
 	<!-- Firebase Script  -->
 	<!-- <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script> -->
 	<!--Jquery link -->
-	<script
-	src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2axKnqiiuN8WPCxo1PY87czkvLOl5nCo&sensor=false&libraries=places&language=en"></script>
 	<!-- Moment JS -->
@@ -42,9 +39,10 @@
 
 			<div class="nav-container">
 
-				<div class="masthead clearfix"  style="background-color: rgba(65, 54, 89, 1)">
+				<div class="masthead clearfix" style="background-color: rgba(65, 54, 89, 1)">
 					<div class="inner">
-						<h1 class="masthead-brand"><span class="event-highlight">Event</span>Planner</h1>
+						<h1 class="masthead-brand">
+							<span class="event-highlight">Event</span>Planner</h1>
 						<nav class="nav nav-masthead">
 							<a class="nav-link" href="dashboard.html">My Events</a>
 							<div id="user-pic"></div>
@@ -92,20 +90,23 @@
 
 					<!-- Results Display -->
 					<div class="col-8" id="results-column">
-						<h2 class="content-label mb-0 mt-5 p-2"><span id="resultsEventName">Name of Event</span></h2>
+						<h2 class="content-label mb-0 mt-5 p-2 d-flex justify-content-center flex-wrap">
+								<span id="resultsEventName">Name of Event</span>
+							<div class="justify-content-around d-flex w-100">
+								<span id="resultsEventLocation">Event Location</span>
+								<span id="resultsEventDate">December, 16 2017</span>
+							</div>
+						</h2>
 						<div class="results-view" id="results-view">
 							<div class="row">
-								<div class="col-12">
-									<h2><span id="resultsEventLocation">Event Location</span></h2>
-									<img id="eventImg" src="http://via.placeholder.com/640x200">
-								</div>
-							</div>
-							<div class="row">
 								<div class="col-7">
-									<h4>Weather on <span id="resultsEventDate">December, 16 2017</span></h4>
+									<h4 class="d-flex justify-content-around"><span>Weather</span> <div><span id="resultsTemperature">55.01 °F</span>&nbsp;&nbsp;&nbsp;
+										<i id="resultsIcon" class="wi wi-na"></i></div></h4>
 								</div>
 								<div class="col-5">
-									<h4 style="text-align: left"><span id="resultsTemperature">55.01 °F</span>&nbsp;&nbsp;&nbsp;<i id="resultsIcon" class="wi wi-na"></i></h4>
+									<h4 style="text-align: left">
+										
+									</h4>
 								</div>
 							</div>
 							<div class="row">
@@ -115,19 +116,19 @@
 								<div class="col-4">
 									<h6 class="event-name" id="event0-name">Events 1</h6>
 									<a id="event0-url" href="#" target="_blank">
-										<img class="event-image" id="event0-img" src="http://via.placeholder.com/200x200">
+										<img class="event-image img-fluid" id="event0-img" src="http://via.placeholder.com/200x200">
 									</a>
 								</div>
 								<div class="col-4">
 									<h6 class="event-name" id="event1-name">Events 2</h6>
 									<a id="event1-url" href="#" target="_blank">
-										<img class="event-image" id="event1-img" src="http://via.placeholder.com/200x200">
+										<img class="event-image img-fluid" id="event1-img" src="http://via.placeholder.com/200x200">
 									</a>
 								</div>
 								<div class="col-4">
 									<h6 class="event-name" id="event2-name">Events 3</h6>
 									<a id="event2-url" href="#" target="_blank">
-										<img class="event-image" id="event2-img" src="http://via.placeholder.com/200x200">
+										<img class="event-image img-fluid" id="event2-img" src="http://via.placeholder.com/200x200">
 									</a>
 								</div>
 							</div>

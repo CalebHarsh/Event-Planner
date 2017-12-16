@@ -13,6 +13,7 @@
 
 function EventPlanner() {
     console.log("CALLED EventPlanner()");
+    this.userPic = document.getElementById('user-pic');
     this.userName = document.getElementById('user-name');
     this.userNameToggle = document.getElementById('user-name-toggle');
     this.signOutButton = document.getElementById('sign-out');
@@ -43,7 +44,7 @@ EventPlanner.prototype.onAuthStateChanged = function(user) {
     // User is signed in
     if (user) {
         // Get profile pic and user's name from the Firebase user object.
-        var profilePicUrl = user.photURL;
+        var profilePicUrl = user.photoURL;
         var userName = user.displayName;
         // If first and last name were not provided and username is not set, then display email
         if (userName == null) {
@@ -53,7 +54,7 @@ EventPlanner.prototype.onAuthStateChanged = function(user) {
         console.log(user);
 
         // Set the user's profile pic and name.
-        // this.userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
+        this.userPic.style.backgroundImage = 'url(' + (profilePicUrl || 'assets/images/profile_placeholder.png') + ')';
         this.userName.textContent = userName;
 
         // Show user's profile and sign-out button.

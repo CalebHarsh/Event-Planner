@@ -31,6 +31,21 @@ inputForm.on("submit", function(event) {
 	console.log(endDate);
 	console.log(eventLocation);
 
+		// FIREBASE STUFF
+	// we get uid of logged in user,
+	var currentUserid=firebase.auth().currentUser.uid
+	console.log(currentUserid)
+	// ref is where we are storing the firebase 
+	// push adds a new element 
+	// sets the values
+	eventPlanner.database.ref("events/"+currenttUserid).push().set({
+		eventName: eventName,
+		startDate: startDate,
+		endDate: endDate,
+		eventLocation: eventLocation,
+	})
+
+
 	// Now we make our API calls
 	//locationAjax(eventLocation.split(",")[0]);
 	locationAjax(eventLocation);

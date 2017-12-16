@@ -336,6 +336,22 @@ h6.modal-or {
   height: 200px;
 }
 
+.event-name {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.event-name:hover {
+    text-overflow: ellipsis;
+    overflow: visible;
+}
+
+.event-image {
+  width: 200px;
+  height: 200px;
+}
+
 /* Features Section */
 
 .feature-header {

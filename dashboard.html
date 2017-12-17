@@ -56,23 +56,11 @@
 
 			<div class="container">
 <!-- style="height: 600px;"-->
-				<div class="row" style="height: 550px;">
-					<h3 hidden style="margin: 0 auto; opacity: 0.2;">It looks like you have no Events saved. Click Add an Event to get started!</h3>
+				<div class="row" style="height: 600px;">
+					<h3 id="no-events-msg" style="margin: 0 auto; opacity: 0.2;">It looks like you have no Events saved. Click Add an Event to get started!</h3>
 					<!-- Events get populated in here -->
 					<div class="col-12">
-						<div class="row">
-							<!-- Sample Event -->
-							<div class="event-item">
-								<div class="overlay"></div>
-								<div class="event-item-info">
-									<h5>Event Name</h5>
-									<p>December 10, 2017 - December 22, 2017</p>
-									<p>Tucson, AZ</p>
-								</div>
-								<div class="event-item-number">
-									<h3>1</h3>
-								</div>
-							</div>
+						<div class="row" id="event-list">
 						</div>
 					</div>
 				</div>
@@ -82,6 +70,27 @@
 		</div>
 
 	</div>
+
+	<!-- Event Details Modal -->
+    <div class="modal fade" id="eventDetailsModal" tabindex="-1" role="dialog" aria-labelledby="eventsDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventsDetailLabel">
+                    	<span class="detail-name-modal"></span><br/>
+                    	<span class="detail-startdate-modal"></span> - <span class="detail-enddate-modal"></span><br/>
+                    	<span class="detail-location-modal"></span>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- Break down of different days -->
+                    <div class="container">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 	<!-- Bootstrap jQuery Link -->

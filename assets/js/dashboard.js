@@ -4,9 +4,13 @@ function EventPlanner() {
     this.userName = document.getElementById('user-name');
     this.userNameToggle = document.getElementById('user-name-toggle');
     this.signOutButton = document.getElementById('sign-out');
-     this.eventList = document.getElementById('event-list');
+    this.noEventsMsg = document.getElementById('no-events-msg');
+    this.eventList = document.getElementById('event-list');
 
     this.signOutButton.addEventListener('click', this.signOut.bind(this));
+
+    // Adding a click event listener to all elements with a class of ".event-item"
+    $(document).on("click", ".event-item", this.showEventDetails);
 
     this.initFirebase();
 }
@@ -54,7 +58,7 @@ EventPlanner.prototype.loadEvents = function() {
 
 // Template for Event.
 EventPlanner.EVENT_TEMPLATE =
-    '<div class="event-item">' +
+    '<div class="event-item" data-toggle="modal" data-target="#eventDetailsModal">' +
         '<div class="overlay"></div>' +
         '<div class="event-item-info">' +
             '<h5 class="item-name"></h5>' +
@@ -78,6 +82,9 @@ EventPlanner.prototype.displayEvent = function(key, name, startDate, endDate, lo
     this.eventList.appendChild(div);
   }
 
+  // Hide the no events msg
+  this.noEventsMsg.setAttribute('hidden', 'true');
+
   console.log(image);
 
   if (image !== "undefined") {
@@ -93,6 +100,38 @@ EventPlanner.prototype.displayEvent = function(key, name, startDate, endDate, lo
   // Show the event fading-in.
   setTimeout(function() {div.classList.add('visible')}, 1);
 };
+
+// Grabs the Event details from DB
+EventPlanner.prototype.showEventDetails = function() {
+    console.log(this);
+    console.log("Id: " + this.id);
+
+    var user = firebase.auth().currentUser;
+    // Reference to the /user-events/uid/eventid database path.
+    this.detailsRef = eventPlanner.database.ref('user-events/' + user.uid + "/" + this.id);
+    // Make sure we remove all previous listeners.
+    this.detailsRef.off();
+
+    console.log("Details: " + this.detailsRef);
+
+    // Loads all the events and listen for new ones.
+    var setDetail = function(data) {
+    var val = data.val();
+    console.log("Modal Val: " + JSON.stringify(val));
+    eventPlanner.populateModal(val.name, val['start-date'], val['end-date'], val.location);
+    }.bind(this);
+    this.detailsRef.once('value', setDetail);
+};
+
+// Populates the modal with Event details
+EventPlanner.prototype.populateModal = function(name, startDate, endDate, location) {
+    var modal = document.getElementById('eventsDetailLabel');
+
+    modal.querySelector('.detail-name-modal').textContent = name;
+    modal.querySelector('.detail-startdate-modal').textContent = startDate;
+    modal.querySelector('.detail-enddate-modal').textContent = endDate;
+    modal.querySelector('.detail-location-modal').textContent = location;
+}
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
 EventPlanner.prototype.onAuthStateChanged = function(user) {

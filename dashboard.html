@@ -56,8 +56,8 @@
 
 			<div class="container">
 <!-- style="height: 600px;"-->
-				<div class="row" style="height: 550px;">
-					<h3 hidden style="margin: 0 auto; opacity: 0.2;">It looks like you have no Events saved. Click Add an Event to get started!</h3>
+				<div class="row" style="height: 600px;">
+					<h3 id="no-events-msg" style="margin: 0 auto; opacity: 0.2;">It looks like you have no Events saved. Click Add an Event to get started!</h3>
 					<!-- Events get populated in here -->
 					<div class="col-12">
 						<div class="row" id="event-list">
@@ -76,34 +76,17 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="eventsDetailLabel">Sign up with
-                        <a href="#" class="event-highlight" id="google-sign-up">Google</a>
+                    <h5 class="modal-title" id="eventsDetailLabel">
+                    	<span class="detail-name-modal"></span><br/>
+                    	<span class="detail-startdate-modal"></span> - <span class="detail-enddate-modal"></span><br/>
+                    	<span class="detail-location-modal"></span>
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <h6 class="login-error text-danger" id="registerError">&nbsp;</h6>
-                    <!-- Register Form -->
-                    <form class="container" id="register-form">
-                        <div class="form-row">
-                            <div class="col">
-                                <label for="firstnameRegister">First Name</label>
-                                <input type="text" class="form-control" id="firstnameRegister" placeholder="First name">
-                            </div>
-                            <div class="col">
-                                <label for="lastnameRegister">Last Name</label>
-                                <input type="text" class="form-control" id="lastnameRegister" placeholder="Last name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="usernameRegister">Email</label>
-                            <input type="email" class="form-control" id="usernameRegister" placeholder="Username" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="passwordRegister">Password</label>
-                            <input type="password" class="form-control" id="passwordRegister" placeholder="Create a Password" required>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Register</button>
-                    </form>
+                    <!-- Break down of different days -->
+                    <div class="container">
+                        
+                    </div>
                 </div>
             </div>
         </div>

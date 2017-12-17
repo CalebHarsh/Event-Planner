@@ -60,19 +60,7 @@
 					<h3 hidden style="margin: 0 auto; opacity: 0.2;">It looks like you have no Events saved. Click Add an Event to get started!</h3>
 					<!-- Events get populated in here -->
 					<div class="col-12">
-						<div class="row">
-							<!-- Sample Event -->
-							<div class="event-item">
-								<div class="overlay"></div>
-								<div class="event-item-info">
-									<h5>Event Name</h5>
-									<p>December 10, 2017 - December 22, 2017</p>
-									<p>Tucson, AZ</p>
-								</div>
-								<div class="event-item-number">
-									<h3>1</h3>
-								</div>
-							</div>
+						<div class="row" id="event-list">
 						</div>
 					</div>
 				</div>
@@ -82,6 +70,44 @@
 		</div>
 
 	</div>
+
+	<!-- Event Details Modal -->
+    <div class="modal fade" id="eventDetailsModal" tabindex="-1" role="dialog" aria-labelledby="eventsDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventsDetailLabel">Sign up with
+                        <a href="#" class="event-highlight" id="google-sign-up">Google</a>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <h6 class="login-error text-danger" id="registerError">&nbsp;</h6>
+                    <!-- Register Form -->
+                    <form class="container" id="register-form">
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="firstnameRegister">First Name</label>
+                                <input type="text" class="form-control" id="firstnameRegister" placeholder="First name">
+                            </div>
+                            <div class="col">
+                                <label for="lastnameRegister">Last Name</label>
+                                <input type="text" class="form-control" id="lastnameRegister" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="usernameRegister">Email</label>
+                            <input type="email" class="form-control" id="usernameRegister" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="passwordRegister">Password</label>
+                            <input type="password" class="form-control" id="passwordRegister" placeholder="Create a Password" required>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 	<!-- Bootstrap jQuery Link -->

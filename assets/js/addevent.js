@@ -1,3 +1,90 @@
+function EventPlanner() {
+    console.log("CALLED EventPlanner()");
+    this.userPic = document.getElementById('user-pic');
+    this.userName = document.getElementById('user-name');
+    this.userNameToggle = document.getElementById('user-name-toggle');
+    this.signOutButton = document.getElementById('sign-out');
+    this.saveEventButton = document.getElementById('save-event');
+
+    this.signOutButton.addEventListener('click', this.signOut.bind(this));
+    this.saveEventButton.addEventListener('click', this.saveEvent.bind(this));
+
+    this.initFirebase();
+}
+
+// Sets up shortcuts to Firebase features and initiate firebase auth.
+EventPlanner.prototype.initFirebase = function() {
+    // Shortcuts to Firebase SDK features.
+    this.auth = firebase.auth();
+    this.database = firebase.database();
+    this.storage = firebase.storage();
+    // Initiates Firebase auth and listen to auth state changes.
+    this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+};
+
+// Signs-out.
+EventPlanner.prototype.signOut = function() {
+    // Sign out of Firebase.
+    this.auth.signOut();
+};
+
+// Saves the form inputs into the DB
+EventPlanner.prototype.saveEvent = function() {
+    console.log("saveEvent called!");
+
+    // Get the current user signed in
+    var user = firebase.auth().currentUser;
+    // Reference to the /user-events/uid database path.
+    this.eventsRef = this.database.ref('user-events/' + user.uid);
+
+    this.eventsRef.push({
+        name: eventName,
+        location: eventLocation,
+        startDate: startDate,
+        endDate: endDate,
+        image: imageSrc
+    }).catch(function(error) {
+        console.error('Error writing new event to Firebase Database', error);
+    });
+};
+
+// Triggers when the auth state change for instance when the user signs-in or signs-out.
+EventPlanner.prototype.onAuthStateChanged = function(user) {
+    // User is signed in
+    if (user) {
+        // Get profile pic and user's name from the Firebase user object.
+        var profilePicUrl = user.photoURL;
+        var userName = user.displayName;
+        // If first and last name were not provided and username is not set, then display email
+        if (userName == null) {
+            userName = user.email;
+        }
+
+        console.log(user);
+
+        // Set the user's profile pic and name.
+        this.userPic.style.backgroundImage = 'url(' + (profilePicUrl || 'assets/images/profile_placeholder.png') + ')';
+        this.userName.textContent = userName;
+
+        // Show user's profile and sign-out button.
+        this.userNameToggle.removeAttribute('hidden');
+        // this.userPic.removeAttribute('hidden');
+
+        console.log("PIC URL: " + profilePicUrl);
+        console.log("Username: " + userName);
+
+    }
+    // User is signed out
+    else {
+        console.log("User Not Logged In.")
+        // Redirect to User Dashboard
+        window.location.href = "index.html";
+    }
+};
+
+window.eventPlanner = new EventPlanner();
+
+// Auto-Complete on Location input
 var input = document.getElementById('location-input');
 var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
 google.maps.event.addListener(autocomplete, 'place_changed', function () {
@@ -12,6 +99,7 @@ var eventName;
 var startDate;
 var endDate;
 var eventLocation;
+var imageSrc;
 
 // Set a listener for when user clicks submit
 inputForm.on("submit", function (event) {
@@ -112,14 +200,14 @@ function locationAjax(location) {
 		var longitude = response.results[0].geometry.location.lng;
 
 		// Parse the startDate
-		startDate = moment(startDate);
+		var currentDate = moment(startDate);
 		// Get startDate in Unix Timestamp
-		var unixStartDate = startDate.format("X");
+		var unixStartDate = currentDate.format("X");
 
-		startDate = startDate.format();
+		currentDate = currentDate.format();
 
 		// API call to Dark Sky Api to get weather info on startDate
-		weatherAjax(latitude, longitude, startDate, endDate);
+		weatherAjax(latitude, longitude, currentDate, endDate);
 
 		// Get endDate in Unix Timestamp
 		var unixEndDate = moment(endDate).format("X");
@@ -142,11 +230,10 @@ function pixaBayCall(keyword) {
 	}).done(function (response) {
 		console.log(response);
 		// Store the image url from the response
-		var src = response.hits[0].webformatURL;
+		imageSrc = response.hits[0].webformatURL;
 		// Change the src of the eventImg to the var src
 		// $("#eventImg").attr("src", src);
-		console.log(src);
-		$("#bgvid").css("background-image", "url("+src+")")
+		$("#bgvid").css("background-image", "url("+imageSrc+")")
 		$("#bgvid").css("background-size", "cover")
 	});
 }

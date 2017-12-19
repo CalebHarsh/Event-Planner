@@ -49,7 +49,7 @@ EventPlanner.prototype.loadEvents = function() {
     var val = data.val();
     console.log("val :" + JSON.stringify(val));
     console.log("data key: " + data.key);
-    this.displayEvent(data.key, val.name, val['start-date'], val['end-date'], val.location, val.image, count);
+    this.displayEvent(data.key, val.name, val['startDate'], val['endDate'], val.location, val.image, count);
     count++;
     }.bind(this);
     this.eventsRef.on('child_added', setEvent);
@@ -62,7 +62,7 @@ EventPlanner.EVENT_TEMPLATE =
         '<div class="overlay"></div>' +
         '<div class="event-item-info">' +
             '<h5 class="item-name"></h5>' +
-            '<p><span class="item-start-date"></span> - <span class="item-end-date"></span></p>' +
+            '<p><span class="item-startDate"></span> - <span class="item-endDate"></span></p>' +
             '<p class="item-location">Tucson, AZ</p>' +
         '</div>' +
         '<div class="event-item-number">' +
@@ -92,8 +92,8 @@ EventPlanner.prototype.displayEvent = function(key, name, startDate, endDate, lo
   }
 
   div.querySelector('.item-name').textContent = name;
-  div.querySelector('.item-start-date').textContent = startDate;
-  div.querySelector('.item-end-date').textContent = endDate;
+  div.querySelector('.item-startDate').textContent = startDate;
+  div.querySelector('.item-endDate').textContent = endDate;
   div.querySelector('.item-location').textContent = location;
   div.querySelector('.item-count').textContent = count;
   
@@ -118,7 +118,7 @@ EventPlanner.prototype.showEventDetails = function() {
     var setDetail = function(data) {
     var val = data.val();
     console.log("Modal Val: " + JSON.stringify(val));
-    eventPlanner.populateModal(val.name, val['start-date'], val['end-date'], val.location);
+    eventPlanner.populateModal(val.name, val['startDate'], val['endDate'], val.location);
     }.bind(this);
     this.detailsRef.once('value', setDetail);
 };

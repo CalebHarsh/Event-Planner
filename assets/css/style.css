@@ -323,6 +323,7 @@ h6.modal-or {
   margin-bottom: 0;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+  height: 93px;
 }
 
 /* Results View */
@@ -563,6 +564,8 @@ h6.modal-or {
   border-radius: 25px;
   /*background-image: url("../images/bg.png");*/
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }

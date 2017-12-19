@@ -31,7 +31,7 @@
 
 <body>
 
-	<video id="bgvid"></video>
+	<!-- <video id="bgvid"></video> -->
 
 	<div class="site-wrapper">
 
@@ -39,14 +39,14 @@
 
 			<div class="nav-container">
 
-				<div class="masthead clearfix">
+				<div class="masthead mb-0 clearfix">
 					<div class="inner">
 						<h1 class="masthead-brand">
 							<span class="event-highlight">E</span>P</h1>
-							<nav class="nav nav-masthead">
+							<nav class="nav nav-masthead2 justify-content-md-end">
 								<div hidden class="dropdown show nav-link" id="user-name-toggle">
 									<a href="#" role="button" id="user-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<div id="user-pic"></div>
+										<div class="justify-content-center justify-content-md-between"id="user-pic"></div>
 									</a>
 									<div class="dropdown-menu" aria-labelledby="user-toggle">
 										<p class="dropdown-item" id="user-name"></p>
@@ -65,9 +65,15 @@
 
 					<div class="row">
 						<!-- Input Form -->
-						<div class="col-4 animated bounceInLeft">
-							<h2 class="content-label mb-0 mt-3 p-2">Set Your Event</h2>
-							<form class="input-form" id="input-form">
+						<div class="col-md-4 animated bounceInLeft">
+							<h2 class="content-label mb-0 mt-3 p-2">Set Your Event
+								<button class="btn btn-dark float-right d-md-none" type="button" data-toggle="collapse" data-target="#eventInfo" aria-expanded="false" aria-controls="collapseExample">
+									<span>Show</span>
+							  </button>
+							</h2>
+							
+							<div class="collaspe" id="eventInfo">
+								<form class="input-form" id="input-form">
 								<div class="form-group mb-4">
 									<label class="col-form-label" for="name-input">Name of Your Event</label>
 									<input type="text" class="form-control" id="name-input" placeholder="My Event" required>
@@ -84,18 +90,20 @@
 									<label class="col-form-label" for="location-input">Location</label>
 									<input type="text" class="form-control" id="location-input" required>
 								</div>
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#eventInfo">Submit</button>
 							</form>
+							</div>
+							
 						</div>
 						<!-- End Input Form -->
 
 						<!-- Results Display -->
-						<div class="col-8" id="results-column">
+						<div class="col-md-8 mb-3" id="results-column">
 							<h2 class="content-label mb-0 mt-3 p-2 d-flex justify-content-center flex-wrap">
 								<span id="resultsEventName">Name of Event</span>
 								<div class="justify-content-around d-flex w-100">
-									<span id="resultsEventLocation">Event Location</span>
-									<span id="resultsEventDate">December, 16 2017</span>
+									<span class="event-name" id="resultsEventLocation">Event Location</span>
+									<span class="event-name" id="resultsEventDate">December, 16 2017</span>
 								</div>
 							</h2>
 							<div class="results-view" id="results-view">
@@ -115,22 +123,28 @@
 										<div class="col-12">
 											<h4>Events In Area</h4>
 										</div>
-										<div class="col-4">
+										<div class="col-md-4 col-6">
 											<h6 class="event-name" id="event0-name">Events 1</h6>
 											<a id="event0-url" href="#" target="_blank">
 												<img class="event-image img-fluid" id="event0-img" src="http://via.placeholder.com/200x200">
 											</a>
 										</div>
-										<div class="col-4">
+										<div class="col-md-4 col-6">
 											<h6 class="event-name" id="event1-name">Events 2</h6>
 											<a id="event1-url" href="#" target="_blank">
 												<img class="event-image img-fluid" id="event1-img" src="http://via.placeholder.com/200x200">
 											</a>
 										</div>
-										<div class="col-4">
+										<div class="col-md-4 col-6">
 											<h6 class="event-name" id="event2-name">Events 3</h6>
 											<a id="event2-url" href="#" target="_blank">
 												<img class="event-image img-fluid" id="event2-img" src="http://via.placeholder.com/200x200">
+											</a>
+										</div>
+										<div class="col-6 d-md-none">
+											<h6 class="event-name" id="event3-name">Restaurants 4</h6>
+											<a id="event3-url" href="#" target="_blank">
+												<img class="event-image img-fluid" id="event3-img" src="http://via.placeholder.com/200x200">
 											</a>
 										</div>
 									</div>
@@ -139,22 +153,28 @@
 										<div class="col-12">
 											<h4>Restaurants In Area</h4>
 										</div>
-										<div class="col-4">
-											<h6 class="restaurant-name" id="restaurant0-name">Restaurants 1</h6>
+										<div class="col-md-4 col-6">
+											<h6 class="event-name" id="restaurant0-name">Restaurants 1</h6>
 											<a id="restaurant0-url" href="#" target="_blank">
-												<img class="event-image" id="restaurant0-img" src="http://via.placeholder.com/200x200">
+												<img class="event-image img-fluid" id="restaurant0-img" src="http://via.placeholder.com/200x200">
 											</a>
 										</div>
-										<div class="col-4">
-											<h6 class="restaurant-name" id="restaurant1-name">Restaurants 2</h6>
+										<div class="col-md-4 col-6">
+											<h6 class="event-name" id="restaurant1-name">Restaurants 2</h6>
 											<a id="restaurant1-url" href="#" target="_blank">
-												<img class="event-image" id="restaurant1-img" src="http://via.placeholder.com/200x200">
+												<img class="event-image img-fluid" id="restaurant1-img" src="http://via.placeholder.com/200x200">
 											</a>
 										</div>
-										<div class="col-4">
-											<h6 class="restaurant-name" id="restaurant2-name">Restaurants 3</h6>
+										<div class="col-md-4 col-6">
+											<h6 class="event-name" id="restaurant2-name">Restaurants 3</h6>
 											<a id="restaurant2-url" href="#" target="_blank">
-												<img class="event-image" id="restaurant2-img" src="http://via.placeholder.com/200x200">
+												<img class="event-image img-fluid" id="restaurant2-img" src="http://via.placeholder.com/200x200">
+											</a>
+										</div>
+										<div class="col-6 d-md-none">
+											<h6 class="event-name" id="restaurant3-name">Restaurants 4</h6>
+											<a id="restaurant3-url" href="#" target="_blank">
+												<img class="event-image img-fluid" id="restaurant3-img" src="http://via.placeholder.com/200x200">
 											</a>
 										</div>
 									</div>

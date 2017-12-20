@@ -101,6 +101,11 @@ var endDate;
 var eventLocation;
 var imageSrc;
 
+//roch globals outing and event for save buttons
+var outing, restaurant
+var saved = []
+
+
 // Set a listener for when user clicks submit
 inputForm.on("submit", function (event) {
 	event.preventDefault();
@@ -267,11 +272,53 @@ function showEvents(arrayOfEvents) {
 		// Change the event#-img in html
 		$("#event" + i + "-img").attr("src", eventImg);
 		
+		// add ID to parent of image
+		
+		$("#event" + i + "-img").parent().parent().attr("id" , "event" + i + "Container")
+		
+		// add button to container
+		$("#event" + i + "Container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
+		
 		// Change the restaurant#-name in html
 		$("#restaurant" + i + "-name").text(restaurantName);
 		// Change the restaurant#-url in html
 		$("#restaurant" + i + "-url").attr("href", restaurantUrl);
 		// Change the restaurant#-img in html
 		$("#restaurant" + i + "-img").attr("src", restaurantImg);
+
+
+		$("#restaurant" + i + "-img").parent().parent().attr("id" , "restaurant" + i + "Container")
+		
+		// add button to container
+		$("#restaurant" + i + "Container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
+
+//add listener for save buttons
+	outing = document.getElementById("event" + i)
+	restaurant = document.getElementById("restaurant" + i)
+	function save(e) {
+	e.addEventListener("click", function(){
+		var saving = new Object()
+		saving.id = this.getAttribute("id") 
+ 		saving.name = document.getElementById(this.getAttribute("id") + "-name").innerHTML
+		saving.img  = document.getElementById(this.getAttribute("id") + "-img").getAttribute("src")
+ 		saving.url  = document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
+ 		if(saved.indexOf(saving) === -1){
+ 
+ 		saved.push(saving)
+ }
+		console.log("you clicked " + this.getAttribute("id"))	
+		})
 	}
-}
+	
+	save(outing)
+	save(restaurant)
+
+	} //for loop
+
+
+
+
+
+
+
+} //show array of events

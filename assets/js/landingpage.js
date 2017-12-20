@@ -323,3 +323,13 @@ window.onload = function() {
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
 };
+
+window.onscroll = () => {
+    console.log("SCROLLING");
+  var nav = document.getElementById('landing-nav');
+  if(this.scrollY <= 500) {
+    $(nav).attr("style", "background-color: rgba(65, 54, 89, 0)");
+  } else {
+     $(nav).attr("style", "background-color: rgba(65, 54, 89, 1)");
+  }
+};

@@ -209,44 +209,118 @@
 [info] i  hosting: Serving hosting files from: /.
 [info] +  hosting: Local server: http://localhost:5000
 
-[debug] [2017-12-19T02:51:22.778Z] ----------------------------------------------------------------------
-[debug] [2017-12-19T02:51:22.786Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Caleb_000\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] [2017-12-19T02:51:22.788Z] CLI Version:   3.16.0
-[debug] [2017-12-19T02:51:22.788Z] Platform:      win32
-[debug] [2017-12-19T02:51:22.788Z] Node Version:  v6.11.2
-[debug] [2017-12-19T02:51:22.790Z] Time:          Mon Dec 18 2017 19:51:22 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-19T02:51:22.790Z] ----------------------------------------------------------------------
+[debug] [2017-12-19T02:48:29.471Z] ----------------------------------------------------------------------
+[debug] [2017-12-19T02:48:29.471Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jjdav_000\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-12-19T02:48:29.471Z] CLI Version:   3.16.0
+[debug] [2017-12-19T02:48:29.486Z] Platform:      win32
+[debug] [2017-12-19T02:48:29.486Z] Node Version:  v6.11.4
+[debug] [2017-12-19T02:48:29.486Z] Time:          Mon Dec 18 2017 19:48:29 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:48:29.486Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-12-19T02:51:22.916Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-12-19T02:51:22.916Z] > authorizing via signed-in user
-[debug] [2017-12-19T02:51:22.932Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2017-12-19T02:51:22.932Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- { refresh_token: '1/JOgMFfGIeNDsP927z9kSKNE6l9s7oF360pc9MYfZiJw',
+[debug] [2017-12-19T02:48:29.533Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-19T02:48:29.533Z] > authorizing via signed-in user
+[debug] [2017-12-19T02:48:29.533Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-12-19T02:48:29.533Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/a2eGsty3IbwtOz0V40miy9V3fHwdCQhHHq9sTwPQJBQ',
   client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Mon Dec 18 2017 19:51:22 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-19T02:51:23.446Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-19T02:51:23.522Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
+
+ Mon Dec 18 2017 19:48:29 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:48:30.002Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T02:48:30.022Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
   
- Mon Dec 18 2017 19:51:23 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-19T02:51:24.336Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-19T02:51:24.336Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
+ Mon Dec 18 2017 19:48:30 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:48:31.010Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T02:48:31.010Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
   
- Mon Dec 18 2017 19:51:24 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-19T02:51:24.797Z] <<< HTTP RESPONSE 200
+ Mon Dec 18 2017 19:48:31 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:48:31.613Z] <<< HTTP RESPONSE 200
 [info] 
-[info] === Serving from 'C:\Users\Caleb_000\Desktop\code\Project-1\Event-Planner'...
+[info] === Serving from 'C:\Users\jjdav_000\Desktop\UA_BOOTCAMP\10-17-2017-Tucson-Class-Repository-FSF\Project_01\Event-Planner'...
 [info] 
-[debug] [2017-12-19T02:51:24.836Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
+[debug] [2017-12-19T02:48:31.657Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
   
- Mon Dec 18 2017 19:51:24 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-19T02:51:25.526Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-19T02:51:25.526Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
+ Mon Dec 18 2017 19:48:31 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:48:32.367Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T02:48:32.367Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
   
- Mon Dec 18 2017 19:51:25 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-19T02:51:26.339Z] <<< HTTP RESPONSE 200
+ Mon Dec 18 2017 19:48:32 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:48:33.148Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /.
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-12-19T02:53:28.183Z] ----------------------------------------------------------------------
+[debug] [2017-12-19T02:53:28.198Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jjdav_000\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-12-19T02:53:28.198Z] CLI Version:   3.16.0
+[debug] [2017-12-19T02:53:28.198Z] Platform:      win32
+[debug] [2017-12-19T02:53:28.198Z] Node Version:  v6.11.4
+[debug] [2017-12-19T02:53:28.198Z] Time:          Mon Dec 18 2017 19:53:28 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:53:28.198Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-19T02:53:28.245Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-19T02:53:28.245Z] > authorizing via signed-in user
+[debug] [2017-12-19T02:53:28.245Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
+  
+ Mon Dec 18 2017 19:53:28 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:53:28.917Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T02:53:28.917Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
+  
+ Mon Dec 18 2017 19:53:28 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:53:29.471Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\jjdav_000\Desktop\UA_BOOTCAMP\10-17-2017-Tucson-Class-Repository-FSF\Project_01\Event-Planner'...
+[info] 
+[debug] [2017-12-19T02:53:29.471Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
+  
+ Mon Dec 18 2017 19:53:29 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:53:30.253Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T02:53:30.258Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
+  
+ Mon Dec 18 2017 19:53:30 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T02:53:30.953Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /.
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-12-19T23:53:47.303Z] ----------------------------------------------------------------------
+[debug] [2017-12-19T23:53:47.307Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jjdav_000\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-12-19T23:53:47.307Z] CLI Version:   3.16.0
+[debug] [2017-12-19T23:53:47.308Z] Platform:      win32
+[debug] [2017-12-19T23:53:47.308Z] Node Version:  v6.11.4
+[debug] [2017-12-19T23:53:47.308Z] Time:          Tue Dec 19 2017 16:53:47 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T23:53:47.308Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-19T23:53:47.331Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-19T23:53:47.331Z] > authorizing via signed-in user
+[debug] [2017-12-19T23:53:47.334Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-12-19T23:53:47.334Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/a2eGsty3IbwtOz0V40miy9V3fHwdCQhHHq9sTwPQJBQ',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Dec 19 2017 16:53:47 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T23:53:47.569Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T23:53:47.576Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
+  
+ Tue Dec 19 2017 16:53:47 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T23:53:48.091Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T23:53:48.092Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
+  
+ Tue Dec 19 2017 16:53:48 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T23:53:48.599Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\jjdav_000\Desktop\UA_BOOTCAMP\10-17-2017-Tucson-Class-Repository-FSF\Project_01\Event-Planner'...
+[info] 
+[debug] [2017-12-19T23:53:48.609Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
+  
+ Tue Dec 19 2017 16:53:48 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T23:53:49.094Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-19T23:53:49.095Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
+  
+ Tue Dec 19 2017 16:53:49 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-19T23:53:49.626Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: /.
 [info] +  hosting: Local server: http://localhost:5000
 

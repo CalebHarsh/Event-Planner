@@ -323,7 +323,6 @@ h6.modal-or {
   margin-bottom: 0;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  height: 93px;
 }
 
 /* Results View */
@@ -349,8 +348,8 @@ h6.modal-or {
 }
 
 .event-image {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 
 /* Features Section */

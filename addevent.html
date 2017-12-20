@@ -93,25 +93,19 @@
 						<div class="col-8" id="results-column">
 							<h2 class="content-label mb-0 mt-3 p-2 d-flex justify-content-center flex-wrap">
 								<span id="resultsEventName">Name of Event</span>
-								<div class="justify-content-around d-flex w-100">
-									<span id="resultsEventLocation">Event Location</span>
-									<span id="resultsEventDate">December, 16 2017</span>
-								</div>
 							</h2>
 							<div class="results-view" id="results-view">
+								<h4 class="justify-content-around d-flex w-100">
+									<span id="resultsEventLocation">Event Location</span> - <span id="resultsEventDate">December, 16 2017</span>
+								</h4>
 								<div class="row">
-									<div class="col-7">
-										<h4 class="d-flex justify-content-around"><span>Weather</span> <div><span id="resultsTemperature">55.01 °F</span>&nbsp;&nbsp;&nbsp;
+									<div class="col-12">
+										<h4 class="d-flex justify-content-around"><span>Weather </span> <div><span id="resultsTemperature">55.01 °F</span>&nbsp;&nbsp;&nbsp;
 											<i id="resultsIcon" class="wi wi-na"></i></div></h4>
-										</div>
-										<div class="col-5">
-											<h4 style="text-align: left">
-
-											</h4>
 										</div>
 									</div>
 									<!-- Events -->
-									<div class="row">
+									<div class="row mt-5">
 										<div class="col-12">
 											<h4>Events In Area</h4>
 										</div>
@@ -135,7 +129,7 @@
 										</div>
 									</div>
 									<!-- Restaurants -->
-									<div class="row">
+									<div class="row my-3">
 										<div class="col-12">
 											<h4>Restaurants In Area</h4>
 										</div>
@@ -156,6 +150,12 @@
 											<a id="restaurant2-url" href="#" target="_blank">
 												<img class="event-image" id="restaurant2-img" src="http://via.placeholder.com/200x200">
 											</a>
+										</div>
+									</div>
+									<!-- Save Button -->
+									<div class="row">
+										<div class="col-12">
+											<div id="save-event" class="btn btn-primary w-100 mt-3" style="background-color: #9bbfab;">Save</div>
 										</div>
 									</div>
 								</div>
@@ -188,11 +188,6 @@
 								<!--end roch edits -->
 							</div>
 							<!-- End Results Display -->
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<div id="save-event" class="btn btn-primary w-100" style="background-color: #9bbfab;">Save</div>
-							</div>
 						</div>
 
 					</div>

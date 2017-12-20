@@ -132,7 +132,7 @@ function showWeatherResults(eventName, date, location, highTemp, lowTemp) {
 	$("#resultsEventName").text(eventName);
 	$("#resultsEventLocation").text(location);
 	$("#resultsEventDate").text(date);
-	$("#resultsTemperature").text(lowTemp + " °F - " + highTemp + " °F");
+	$("#resultsTemperature").text("Low: " + lowTemp + " °F - High: " + highTemp + " °F");
 
 	pixaBayCall(location.split(",")[0].replace(/ /g, "+"));
 }

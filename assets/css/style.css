@@ -53,13 +53,18 @@ a.event-highlight:hover {
 
  html,
  body {
-  height: 100%;
+  min-height: 100%;
   /*background-color: #333;*/
+  
 }
 body {
   color: #f2efdf;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+  background-image: url("../images/bg.png");
+}
+body.no-bg{
+  background-image: none;
 }
 
 video#bgvid { 
@@ -104,7 +109,7 @@ video#bgvid {
 
 /* Padding for spacing */
 .inner {
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 
@@ -141,6 +146,9 @@ video#bgvid {
 }
 .nav-masthead {
   justify-content: space-between;
+}
+.nav-masthead2 {
+  justify-content: center;
 }
 
 .nav-masthead .nav-link:hover,
@@ -311,7 +319,7 @@ h6.modal-or {
 /* Input Form */
 .input-form,
 .results-view {
-  height: 600px;
+  /* height: 600px; */
   padding: 2rem;
   background-color: #656f8c;
   border-bottom-left-radius: 0.25rem;
@@ -607,4 +615,9 @@ h6.modal-or {
 .overlay:hover {
   background-color: rgba(0,0,0,0);
   border: 1px solid #000;
+}
+
+.place-holder-nav {
+  height: 64px;
+  margin-bottom: 2em;
 }

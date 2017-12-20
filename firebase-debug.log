@@ -226,6 +226,7 @@
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+
  Mon Dec 18 2017 19:48:29 GMT-0700 (US Mountain Standard Time)
 [debug] [2017-12-19T02:48:30.002Z] <<< HTTP RESPONSE 200
 [debug] [2017-12-19T02:48:30.022Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  

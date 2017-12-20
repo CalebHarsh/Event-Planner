@@ -238,8 +238,8 @@ function pixaBayCall(keyword) {
 		imageSrc = response.hits[0].webformatURL;
 		// Change the src of the eventImg to the var src
 		// $("#eventImg").attr("src", src);
-		$("#bgvid").css("background-image", "url("+imageSrc+")")
-		$("#bgvid").css("background-size", "cover")
+		$("body").css("background-image", "url("+imageSrc+")")
+		$("body").css("background-size", "cover")
 	});
 }
 
@@ -254,7 +254,7 @@ function showEvents(arrayOfEvents) {
 	var restaurants = arrayOfEvents[1];
 
 	// Get 3 Events to dispay
-	for (var i = 0; i < 3; i++) {
+	for (var i = 0; i < 4; i++) {
 		var currentEvent = events.events[i];
 		var eventName = currentEvent.name;
 		var eventImg = currentEvent.image_url;

@@ -1,4 +1,22 @@
 /*
+ * Color Scheme: Dreams Forever
+ *
+ * Dark Purple:  #211426
+ * Light Purple: #413659
+ * Fade Blue:    #656f8c
+ * Teal:         #9bbfab
+ * Cream:        #f2efdf
+ *
+ *  Color Scheme: Anggo Djago
+ *
+ * Dark Blue:    #002a4a
+ * Light Blue:   #17607d
+ * Cream:        #fff1ce
+ * Orange:       #ff9311
+ * Deep Orange:  #d64700
+ */
+
+/*
  * Globals
  */
 
@@ -85,6 +103,14 @@ video#bgvid {
   overflow-x: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Lora', serif;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
@@ -99,8 +125,9 @@ video#bgvid {
   vertical-align: top;
 }
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+  /*margin-right: auto;
+  margin-left: auto;*/
+  margin-left: 4rem;
 }
 
 .nav-container {
@@ -191,6 +218,7 @@ video#bgvid {
 
 .cover {
   padding: 0 1.5rem;
+  text-align: left;
 }
 .cover .btn-lg {
   padding: .75rem 1.25rem;
@@ -255,7 +283,7 @@ video#bgvid {
 @media (min-width: 62em) {
   .mastfoot,
   .cover-container {
-    width: 42rem;
+    /*width: 42rem;*/
   }
 }
 

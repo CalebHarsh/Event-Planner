@@ -37,15 +37,25 @@ EventPlanner.prototype.saveEvent = function () {
 	// Reference to the /user-events/uid database path.
 	this.eventsRef = this.database.ref('user-events/' + user.uid);
 
-	this.eventsRef.push({
+	var pushRef = this.eventsRef.push({
 		name: eventName,
 		location: eventLocation,
 		startDate: startDate,
 		endDate: endDate,
 		image: imageSrc
-	}).catch(function (error) {
-		console.error('Error writing new event to Firebase Database', error);
 	});
+
+	console.log("PUSH KEY: " + pushRef.key);
+
+	this.detailsRef = this.database.ref('event-details/' + pushRef.key);
+
+	console.log("final push: " + JSON.stringify(saved));
+
+	for(var i = 0; i < saved.length; i++) {
+		this.detailsRef.push(saved[i]);
+	}
+
+	window.location.href = "dashboard.html";
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
@@ -102,8 +112,8 @@ var eventLocation;
 var imageSrc;
 
 //roch globals outing and event for save buttons
-var outing, restaurant
-var saved = []
+var outing, restaurant, finalizedEvents;
+var saved = [];
 
 
 // Set a listener for when user clicks submit
@@ -259,14 +269,17 @@ function showEvents(arrayOfEvents) {
 		var eventName = currentEvent.name;
 		var eventImg = currentEvent.image_url;
 		var eventUrl = currentEvent.event_site_url;
+		var eventDescription = currentEvent.description;
 
 		var currentRestaurant = restaurants.businesses[i];
 		var restaurantName = currentRestaurant.name;
 		var restaurantImg = currentRestaurant.image_url;
 		var restaurantUrl = currentRestaurant.url;
+		var restaurantDescription = currentRestaurant.display_phone;
 
 		// Change the event#-name in html
 		$("#event" + i + "-name").text(eventName);
+		$("#event" + i + "-name").attr("data-description", eventDescription);
 		// Change the event#-url in html
 		$("#event" + i + "-url").attr("href", eventUrl);
 		// Change the event#-img in html
@@ -285,6 +298,7 @@ function showEvents(arrayOfEvents) {
 
 		// Change the restaurant#-name in html
 		$("#restaurant" + i + "-name").text(restaurantName);
+		$("#restaurant" + i + "-name").attr("data-description", restaurantDescription);
 		// Change the restaurant#-url in html
 		$("#restaurant" + i + "-url").attr("href", restaurantUrl);
 		// Change the restaurant#-img in html
@@ -295,63 +309,63 @@ function showEvents(arrayOfEvents) {
 
 		// add button to container
 		$(".restaurant" + i + "-container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
-			.addClass("position-relative")
+			.addClass("position-relative");	
 		//adds data attribute to save button
-		$(".restaurant" + i).data("saved", false)
+		$(".restaurant" + i).data("saved", false);
 
 		//add listener for save buttons
-		outing = document.getElementById("event" + i)
-		restaurant = document.getElementById("restaurant" + i)
+		outing = document.getElementById("event" + i);
+		restaurant = document.getElementById("restaurant" + i);
 		function save(e) {
 			e.addEventListener("click", function () {
 				var saving = {
 					id: this.getAttribute("id"),
 					name: document.getElementById(this.getAttribute("id") + "-name").innerHTML,
 					img: document.getElementById(this.getAttribute("id") + "-img").getAttribute("src"),
-					url: document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
+					url: document.getElementById(this.getAttribute("id") + "-url").getAttribute("href"),
+					description: document.getElementById(this.getAttribute("id") + "-name").getAttribute("data-description")
 				}
 
-				console.log(this)
+				console.log(this);
 
 				//Caleb's save features
 				if ($(this).data("saved")) {
 					$(this).addClass("btn-primary").removeClass("savedBtnClick")
-						.text("Save")
-					$(this).data("saved", false)
-					var index = saved.findIndex(s => s.id === saving.id)
+						.text("Save");
+					$(this).data("saved", false);
+					var index = saved.findIndex(s => s.id === saving.id);
 					// console.log(saved, saving)
 					// console.log(index)
-					saved.splice(index, 1)
+					saved.splice(index, 1);
 				} else {
 					$(this).addClass("savedBtnClick").removeClass("btn-primary")
-						.text("Saved")
-					$(this).data("saved", true)
-					saved.push(saving)
+						.text("Saved");
+					$(this).data("saved", true);
+					saved.push(saving);
 				}
 
 
 
-				console.log("you clicked " + this.getAttribute("id"))
+				console.log("you clicked " + this.getAttribute("id"));
 			})
 		}
 
-		save(outing)
-		save(restaurant)
+		save(outing);
+		save(restaurant);
 
 
 	} //for loop
 
 	//add listener for final Save
-	saveEvent = document.getElementById("save-event")
+	saveEvent = document.getElementById("save-event");
 	function saveEvents(x) {
 		x.addEventListener("click", function () {
-			console.log(saved)
-			saved = saved.filter((saved, index, self) => self.findIndex(t => t.id === saved.id) === index)
-			console.log(saved)
-			return saved
+			console.log(saved);
+			saved = saved.filter((saved, index, self) => self.findIndex(t => t.id === saved.id) === index);
+			finalizedEvents = saved;
 		})
 	}
-	saveEvents(saveEvent)
+	saveEvents(saveEvent);
 
 
 

@@ -105,22 +105,34 @@ EventPlanner.prototype.displayEvent = function(key, name, startDate, endDate, lo
 EventPlanner.prototype.showEventDetails = function() {
     console.log(this);
     console.log("Id: " + this.id);
+    $('#eventListModal').empty();
 
     var user = firebase.auth().currentUser;
     // Reference to the /user-events/uid/eventid database path.
     this.detailsRef = eventPlanner.database.ref('user-events/' + user.uid + "/" + this.id);
+    this.detailsListRef = eventPlanner.database.ref('event-details/' + this.id);
     // Make sure we remove all previous listeners.
     this.detailsRef.off();
+    this.detailsListRef.off();
 
     console.log("Details: " + this.detailsRef);
 
     // Loads all the events and listen for new ones.
     var setDetail = function(data) {
-    var val = data.val();
-    console.log("Modal Val: " + JSON.stringify(val));
-    eventPlanner.populateModal(val.name, val['startDate'], val['endDate'], val.location);
+        var val = data.val();
+        console.log("Modal Val: " + JSON.stringify(val));
+        eventPlanner.populateModal(val.name, val['startDate'], val['endDate'], val.location);
     }.bind(this);
+
+    var setDetailList = function(data) {
+        var val = data.val();
+        console.log("Detail List Val: " + JSON.stringify(val));
+        eventPlanner.populateModalList(val.name, val.img, val.url, val.description);
+    }.bind(this);
+
     this.detailsRef.once('value', setDetail);
+    this.detailsListRef.on('child_added', setDetailList);
+    this.detailsListRef.on('child_changed', setDetailList);
 };
 
 // Populates the modal with Event details
@@ -131,6 +143,30 @@ EventPlanner.prototype.populateModal = function(name, startDate, endDate, locati
     modal.querySelector('.detail-startdate-modal').textContent = startDate;
     modal.querySelector('.detail-enddate-modal').textContent = endDate;
     modal.querySelector('.detail-location-modal').textContent = location;
+}
+
+// Populates the modal with List of Events
+EventPlanner.prototype.populateModalList = function(name, img, url, desc) {
+    var modal = $('#eventListModal');
+
+    var row = $("<div>").addClass("row modal-event-list");
+    var imgCol = $("<div>").addClass("col-4");
+    var aTag = $("<a>").attr("href", url);
+    var imgTag = $("<img>").attr("src", img).addClass("rounded img-thumbnail modal-list-image");
+
+    imgCol.append(aTag.append(imgTag));
+
+    var textCol = $("<div>").addClass("col-8");
+    var title = $("<p>").text(name);
+    var description = $("<p>").text(desc).addClass("font-weight-light");
+
+    textCol.append(title);
+    textCol.append(description);
+
+    row.append(imgCol);
+    row.append(textCol);
+
+    modal.append(row);
 }
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.

@@ -336,30 +336,30 @@ window.onscroll = () => {
 
 $("#step1").on("mouseover", function() {
     $("#steps-gif1").removeClass("steps-gif-hidden");
-    $("#steps-gif1").addClass("steps-gif-shown");
+    $("#steps-gif1").addClass("steps-gif-shown-1");
 });
 
 $("#step1").on("mouseleave", function() {
     $("#steps-gif1").addClass("steps-gif-hidden");
-    $("#steps-gif1").removeClass("steps-gif-shown");
+    $("#steps-gif1").removeClass("steps-gif-shown-1");
 });
 
 $("#step2").on("mouseover", function() {
     $("#steps-gif2").removeClass("steps-gif-hidden");
-    $("#steps-gif2").addClass("steps-gif-shown");
+    $("#steps-gif2").addClass("steps-gif-shown-2");
 });
 
 $("#step2").on("mouseleave", function() {
     $("#steps-gif2").addClass("steps-gif-hidden");
-    $("#steps-gif2").removeClass("steps-gif-shown");
+    $("#steps-gif2").removeClass("steps-gif-shown-2");
 });
 
 $("#step3").on("mouseover", function() {
     $("#steps-gif3").removeClass("steps-gif-hidden");
-    $("#steps-gif3").addClass("steps-gif-shown");
+    $("#steps-gif3").addClass("steps-gif-shown-3");
 });
 
 $("#step3").on("mouseleave", function() {
     $("#steps-gif3").addClass("steps-gif-hidden");
-    $("#steps-gif3").removeClass("steps-gif-shown");
+    $("#steps-gif3").removeClass("steps-gif-shown-3");
 });

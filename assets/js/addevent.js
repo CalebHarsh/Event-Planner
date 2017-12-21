@@ -109,7 +109,7 @@ var eventName;
 var startDate;
 var endDate;
 var eventLocation;
-var imageSrc;
+var imageSrc = "https://newevolutiondesigns.com/images/freebies/city-wallpaper-46.jpg";
 
 //roch globals outing and event for save buttons
 var outing, restaurant, finalizedEvents;
@@ -249,10 +249,11 @@ function pixaBayCall(keyword) {
 		console.log(response);
 		// Store the image url from the response
 		imageSrc = response.hits[0].webformatURL;
+		console.log(imageSrc); //|| "https://newevolutiondesigns.com/images/freebies/city-wallpaper-46.jpg";
 		// Change the src of the eventImg to the var src
 		// $("#eventImg").attr("src", src);
-		$("body").css("background-image", "url(" + imageSrc + ")")
-		$("body").css("background-size", "cover")
+		$("body").css("background-image", "url(" + imageSrc + ")");
+		$("body").css("background-size", "cover");
 	});
 }
 

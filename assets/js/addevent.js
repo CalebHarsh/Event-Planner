@@ -1,85 +1,85 @@
 function EventPlanner() {
-    console.log("CALLED EventPlanner()");
-    this.userPic = document.getElementById('user-pic');
-    this.userName = document.getElementById('user-name');
-    this.userNameToggle = document.getElementById('user-name-toggle');
-    this.signOutButton = document.getElementById('sign-out');
-    this.saveEventButton = document.getElementById('save-event');
+	console.log("CALLED EventPlanner()");
+	this.userPic = document.getElementById('user-pic');
+	this.userName = document.getElementById('user-name');
+	this.userNameToggle = document.getElementById('user-name-toggle');
+	this.signOutButton = document.getElementById('sign-out');
+	this.saveEventButton = document.getElementById('save-event');
 
-    this.signOutButton.addEventListener('click', this.signOut.bind(this));
-    this.saveEventButton.addEventListener('click', this.saveEvent.bind(this));
+	this.signOutButton.addEventListener('click', this.signOut.bind(this));
+	this.saveEventButton.addEventListener('click', this.saveEvent.bind(this));
 
-    this.initFirebase();
+	this.initFirebase();
 }
 
 // Sets up shortcuts to Firebase features and initiate firebase auth.
-EventPlanner.prototype.initFirebase = function() {
-    // Shortcuts to Firebase SDK features.
-    this.auth = firebase.auth();
-    this.database = firebase.database();
-    this.storage = firebase.storage();
-    // Initiates Firebase auth and listen to auth state changes.
-    this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+EventPlanner.prototype.initFirebase = function () {
+	// Shortcuts to Firebase SDK features.
+	this.auth = firebase.auth();
+	this.database = firebase.database();
+	this.storage = firebase.storage();
+	// Initiates Firebase auth and listen to auth state changes.
+	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 };
 
 // Signs-out.
-EventPlanner.prototype.signOut = function() {
-    // Sign out of Firebase.
-    this.auth.signOut();
+EventPlanner.prototype.signOut = function () {
+	// Sign out of Firebase.
+	this.auth.signOut();
 };
 
 // Saves the form inputs into the DB
-EventPlanner.prototype.saveEvent = function() {
-    console.log("saveEvent called!");
+EventPlanner.prototype.saveEvent = function () {
+	console.log("saveEvent called!");
 
-    // Get the current user signed in
-    var user = firebase.auth().currentUser;
-    // Reference to the /user-events/uid database path.
-    this.eventsRef = this.database.ref('user-events/' + user.uid);
+	// Get the current user signed in
+	var user = firebase.auth().currentUser;
+	// Reference to the /user-events/uid database path.
+	this.eventsRef = this.database.ref('user-events/' + user.uid);
 
-    this.eventsRef.push({
-        name: eventName,
-        location: eventLocation,
-        startDate: startDate,
-        endDate: endDate,
-        image: imageSrc
-    }).catch(function(error) {
-        console.error('Error writing new event to Firebase Database', error);
-    });
+	this.eventsRef.push({
+		name: eventName,
+		location: eventLocation,
+		startDate: startDate,
+		endDate: endDate,
+		image: imageSrc
+	}).catch(function (error) {
+		console.error('Error writing new event to Firebase Database', error);
+	});
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
-EventPlanner.prototype.onAuthStateChanged = function(user) {
-    // User is signed in
-    if (user) {
-        // Get profile pic and user's name from the Firebase user object.
-        var profilePicUrl = user.photoURL;
-        var userName = user.displayName;
-        // If first and last name were not provided and username is not set, then display email
-        if (userName == null) {
-            userName = user.email;
-        }
+EventPlanner.prototype.onAuthStateChanged = function (user) {
+	// User is signed in
+	if (user) {
+		// Get profile pic and user's name from the Firebase user object.
+		var profilePicUrl = user.photoURL;
+		var userName = user.displayName;
+		// If first and last name were not provided and username is not set, then display email
+		if (userName == null) {
+			userName = user.email;
+		}
 
-        console.log(user);
+		console.log(user);
 
-        // Set the user's profile pic and name.
-        this.userPic.style.backgroundImage = 'url(' + (profilePicUrl || 'assets/images/profile_placeholder.png') + ')';
-        this.userName.textContent = userName;
+		// Set the user's profile pic and name.
+		this.userPic.style.backgroundImage = 'url(' + (profilePicUrl || 'assets/images/profile_placeholder.png') + ')';
+		this.userName.textContent = userName;
 
-        // Show user's profile and sign-out button.
-        this.userNameToggle.removeAttribute('hidden');
-        // this.userPic.removeAttribute('hidden');
+		// Show user's profile and sign-out button.
+		this.userNameToggle.removeAttribute('hidden');
+		// this.userPic.removeAttribute('hidden');
 
-        console.log("PIC URL: " + profilePicUrl);
-        console.log("Username: " + userName);
+		console.log("PIC URL: " + profilePicUrl);
+		console.log("Username: " + userName);
 
-    }
-    // User is signed out
-    else {
-        console.log("User Not Logged In.")
-        // Redirect to User Dashboard
-        window.location.href = "index.html";
-    }
+	}
+	// User is signed out
+	else {
+		console.log("User Not Logged In.")
+		// Redirect to User Dashboard
+		window.location.href = "index.html";
+	}
 };
 
 window.eventPlanner = new EventPlanner();
@@ -150,7 +150,7 @@ function getWeatherAPIURL(lat, long, time) {
 	var APIkey = "bb3044cbc0686c80eeb8b44883666dd9";
 	console.log("TIME");
 	console.log(time);
-	var query = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + APIkey + "/" + lat + "," + long + "," + time;
+	var query = "https://tri-cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + APIkey + "/" + lat + "," + long + "," + time;
 
 	return query;
 }
@@ -238,7 +238,7 @@ function pixaBayCall(keyword) {
 		imageSrc = response.hits[0].webformatURL;
 		// Change the src of the eventImg to the var src
 		// $("#eventImg").attr("src", src);
-		$("body").css("background-image", "url("+imageSrc+")")
+		$("body").css("background-image", "url(" + imageSrc + ")")
 		$("body").css("background-size", "cover")
 	});
 }
@@ -271,14 +271,18 @@ function showEvents(arrayOfEvents) {
 		$("#event" + i + "-url").attr("href", eventUrl);
 		// Change the event#-img in html
 		$("#event" + i + "-img").attr("src", eventImg);
-		
+
 		// add ID to parent of image
-		
-		$("#event" + i + "-img").parent().parent().attr("id" , "event" + i + "Container")
-		
+
+		// $("#event" + i + "-img").parent().parent().attr("id", "event" + i + "Container")
+
+
 		// add button to container
-		$("#event" + i + "Container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
-		
+		$(".event" + i + "-container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
+			.addClass("position-relative")
+		//adds data attribute to save button
+		$(".event" + i).data("saved", false)
+
 		// Change the restaurant#-name in html
 		$("#restaurant" + i + "-name").text(restaurantName);
 		// Change the restaurant#-url in html
@@ -287,37 +291,67 @@ function showEvents(arrayOfEvents) {
 		$("#restaurant" + i + "-img").attr("src", restaurantImg);
 
 
-		$("#restaurant" + i + "-img").parent().parent().attr("id" , "restaurant" + i + "Container")
-		
-		// add button to container
-		$("#restaurant" + i + "Container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
 
-//add listener for save buttons
-	outing = document.getElementById("event" + i)
-	restaurant = document.getElementById("restaurant" + i)
-	function save(e) {
-	e.addEventListener("click", function(){
-		var saving = new Object()
-		saving.id = this.getAttribute("id") 
- 		saving.name = document.getElementById(this.getAttribute("id") + "-name").innerHTML
-		saving.img  = document.getElementById(this.getAttribute("id") + "-img").getAttribute("src")
- 		saving.url  = document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
- 		if(saved.indexOf(saving) === -1){
- 
- 		saved.push(saving)
- }
-		console.log("you clicked " + this.getAttribute("id"))	
-		})
-	}
-	
-	save(outing)
-	save(restaurant)
+
+		// add button to container
+		$(".restaurant" + i + "-container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
+			.addClass("position-relative")
+		//adds data attribute to save button
+		$(".restaurant" + i).data("saved", false)
+
+		//add listener for save buttons
+		outing = document.getElementById("event" + i)
+		restaurant = document.getElementById("restaurant" + i)
+		function save(e) {
+			e.addEventListener("click", function () {
+				var saving = {
+					id: this.getAttribute("id"),
+					name: document.getElementById(this.getAttribute("id") + "-name").innerHTML,
+					img: document.getElementById(this.getAttribute("id") + "-img").getAttribute("src"),
+					url: document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
+				}
+
+				console.log(this)
+
+				//Caleb's save features
+				if ($(this).data("saved")) {
+					$(this).addClass("btn-primary").removeClass("savedBtnClick")
+						.text("Save")
+					$(this).data("saved", false)
+					var index = saved.findIndex(s => s.id === saving.id)
+					// console.log(saved, saving)
+					// console.log(index)
+					saved.splice(index, 1)
+				} else {
+					$(this).addClass("savedBtnClick").removeClass("btn-primary")
+						.text("Saved")
+					$(this).data("saved", true)
+					saved.push(saving)
+				}
+
+
+
+				console.log("you clicked " + this.getAttribute("id"))
+			})
+		}
+
+		save(outing)
+		save(restaurant)
+
 
 	} //for loop
 
-
-
-
+	//add listener for final Save
+	saveEvent = document.getElementById("save-event")
+	function saveEvents(x) {
+		x.addEventListener("click", function () {
+			console.log(saved)
+			saved = saved.filter((saved, index, self) => self.findIndex(t => t.id === saved.id) === index)
+			console.log(saved)
+			return saved
+		})
+	}
+	saveEvents(saveEvent)
 
 
 
@@ -327,10 +361,13 @@ function showEvents(arrayOfEvents) {
 function toggleSidebar() {
 	// $(obj).toggleClass("sidebar-hide");
 	// $(obj).toggleClass("sidebar-show");
-	if($("#inputSidebar").hasClass("sidebar-show")) {
+	console.log(screen.height)
+	if ($("#inputSidebar").hasClass("sidebar-show")) {
 		$("#inputSidebar").removeClass("zoomIn");
-		$("#inputSidebar").addClass("zoomOut");
-		$("#inputSidebar").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+		if (screen.height >= 768) {
+			$("#inputSidebar").addClass("zoomOut");
+		}
+		$("#inputSidebar").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
 			$("#inputSidebar").removeClass("zoomOut");
 			$("#inputSidebar").removeClass("sidebar-show");
 			$("#inputSidebar").addClass("zoomIn sidebar-hide");
@@ -340,7 +377,7 @@ function toggleSidebar() {
 	} else {
 		$("#inputSidebar").removeClass("zoomIn");
 		$("#inputSidebar").addClass("zoomOut");
-		$("#inputSidebar").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+		$("#inputSidebar").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
 			$("#inputSidebar").removeClass("zoomOut");
 			$("#inputSidebar").removeClass("sidebar-hide");
 			$("#inputSidebar").addClass("zoomIn sidebar-show");

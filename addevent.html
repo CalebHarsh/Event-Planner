@@ -8,7 +8,7 @@
 	<link rel="icon" type="image/png" href="/assets/images/brand32.png" sizes="32x32">
 	<!-- Bootstrap CDN link -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-	crossorigin="anonymous">
+	 crossorigin="anonymous">
 	<!-- Animate CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<!-- Weather Icons CSS -->
@@ -45,34 +45,35 @@
 						<h1 class="masthead-brand">
 							<div class="brand-logo"><img src="assets/images/brand.png"></div>
 							<span class="event-highlight">E</span>P</h1>
-							<nav class="nav nav-masthead2 justify-content-md-end">
-								<div hidden class="dropdown show nav-link" id="user-name-toggle">
-									<a href="#" role="button" id="user-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<div class="justify-content-center justify-content-md-between"id="user-pic"></div>
-									</a>
-									<div class="dropdown-menu" aria-labelledby="user-toggle">
-										<p class="dropdown-item" id="user-name"></p>
-										<a class="dropdown-item" href="#">Profile</a>
-										<a class="dropdown-item" href="dashboard.html">My Events</a>
-										<a class="dropdown-item" id="sign-out" href="#">Sign Out</a>
-									</div>
+						<nav class="nav nav-masthead2 justify-content-md-end">
+							<div hidden class="dropdown show nav-link" id="user-name-toggle">
+								<a href="#" role="button" id="user-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<div class="justify-content-center justify-content-md-between" id="user-pic"></div>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="user-toggle">
+									<p class="dropdown-item" id="user-name"></p>
+									<a class="dropdown-item" href="#">Profile</a>
+									<a class="dropdown-item" href="dashboard.html">My Events</a>
+									<a class="dropdown-item" id="sign-out" href="#">Sign Out</a>
 								</div>
-							</nav>
-						</div>
+							</div>
+						</nav>
 					</div>
 				</div>
+			</div>
 
-				<!-- Content Container -->
-				<div class="container">
+			<!-- Content Container -->
+			<div class="container">
 
-					<div class="row">
-						<!-- Input Form -->
-						<div class="col-md-4 sidebar-show animated zoomIn" style="z-index: 999;" id="inputSidebar">
-							<h2 class="content-label mb-0 mt-3 p-2" onclick="toggleSidebar()" data-toggle="collapse" data-target="#eventInfo" aria-expanded="true" aria-controls="collapseExample">Set Your Event
-							</h2>
-							
-							<div class="collapse show" id="eventInfo">
-								<form class="input-form" id="input-form">
+				<div class="row">
+					<!-- Input Form -->
+					<div class="col-md-4 sidebar-show animated zoomIn" style="z-index: 999;" id="inputSidebar">
+						<h2 class="content-label mb-0 mt-3 p-2" onclick="toggleSidebar()" data-toggle="collapse" data-target="#eventInfo" aria-expanded="true"
+						 aria-controls="collapseExample">Set Your Event
+						</h2>
+
+						<div class="collapse show" id="eventInfo">
+							<form class="input-form" id="input-form">
 								<div class="form-group mb-4">
 									<label class="col-form-label" for="name-input">Name of Your Event</label>
 									<input type="text" class="form-control" id="name-input" placeholder="My Event" required>
@@ -91,95 +92,124 @@
 								</div>
 								<button type="submit" class="btn btn-primary" data-toggle="collapse" onclick="toggleSidebar()" data-target="#eventInfo">Submit</button>
 							</form>
-							</div>
-							
 						</div>
-						<!-- End Input Form -->
 
-						<!-- Results Display -->
-						<div class="col-md-8 mb-3" id="results-column">
-							<h2 class="content-label mb-0 mt-3 p-2 d-flex justify-content-center flex-wrap">
-								<span id="resultsEventName">Name of Event</span>
-							</h2>
-							<div class="results-view" id="results-view">
-								<h4 class="justify-content-around d-flex w-100">
-									<span id="resultsEventLocation">Event Location</span> - <span id="resultsEventDate">December, 16 2017</span>
-								</h4>
-								<div class="row">
-									<div class="col-12">
-										<h4 class="d-flex justify-content-around"><span>Weather </span> <div><span id="resultsTemperature">55.01 °F</span>&nbsp;&nbsp;&nbsp;
-											<i id="resultsIcon" class="wi wi-na"></i></div></h4>
+					</div>
+					<!-- End Input Form -->
+
+					<!-- Results Display -->
+					<div class="col-md-8 mb-3" id="results-column">
+						<h2 class="content-label mb-0 mt-3 p-2 d-flex justify-content-center flex-wrap">
+							<span id="resultsEventName">Name of Event</span>
+						</h2>
+						<div class="results-view" id="results-view">
+							<h4 class="justify-content-around d-flex w-100">
+								<span id="resultsEventLocation">Event Location</span> -
+								<span id="resultsEventDate">December, 16 2017</span>
+							</h4>
+							<div class="row">
+								<div class="col-12">
+									<h4 class="d-flex justify-content-around">
+										<span>Weather </span>
+										<div>
+											<span id="resultsTemperature">55.01 °F</span>&nbsp;&nbsp;&nbsp;
+											<i id="resultsIcon" class="wi wi-na"></i>
 										</div>
-									</div>
-									<!-- Events -->
-									<div class="row mt-4">
-										<div class="col-12">
-											<h4>Events In Area</h4>
-										</div>
-										<div class="col-md-4 col-6">
-											<h6 class="event-name" id="event0-name">Events 1</h6>
-											<a id="event0-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="event0-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-										<div class="col-md-4 col-6">
-											<h6 class="event-name" id="event1-name">Events 2</h6>
-											<a id="event1-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="event1-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-										<div class="col-md-4 col-6">
-											<h6 class="event-name" id="event2-name">Events 3</h6>
-											<a id="event2-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="event2-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-										<div class="col-6 d-md-none">
-											<h6 class="event-name" id="event3-name">Restaurants 4</h6>
-											<a id="event3-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="event3-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-									</div>
-									<!-- Restaurants -->
-									<div class="row my-3">
-										<div class="col-12">
-											<h4>Restaurants In Area</h4>
-										</div>
-										<div class="col-md-4 col-6">
-											<h6 class="event-name" id="restaurant0-name">Restaurants 1</h6>
-											<a id="restaurant0-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="restaurant0-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-										<div class="col-md-4 col-6">
-											<h6 class="event-name" id="restaurant1-name">Restaurants 2</h6>
-											<a id="restaurant1-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="restaurant1-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-										<div class="col-md-4 col-6">
-											<h6 class="event-name" id="restaurant2-name">Restaurants 3</h6>
-											<a id="restaurant2-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="restaurant2-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-										<div class="col-6 d-md-none">
-											<h6 class="event-name" id="restaurant3-name">Restaurants 4</h6>
-											<a id="restaurant3-url" href="#" target="_blank">
-												<img class="event-image img-fluid" id="restaurant3-img" src="http://via.placeholder.com/200x200">
-											</a>
-										</div>
-									</div>
-									<!-- Save Button -->
-									<div class="row">
-										<div class="col-12">
-											<div id="save-event" class="btn btn-primary w-100 mt-3">Save</div>
-										</div>
+									</h4>
+								</div>
+							</div>
+							<!-- Events -->
+							<div class="row mt-4">
+								<div class="col-12">
+									<h4>Events In Area</h4>
+								</div>
+								<div class="col-md-3 col-6">
+									<h6 class="event-name" id="event0-name">Events 1</h6>
+									<div class="event0-container">
+										<a id="event0-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="event0-img" src="http://via.placeholder.com/200x200">
+										</a>
 									</div>
 								</div>
-								<!-- roch edits -->
-								<!-- <div class="results-view" id="restaurants-view">
+								<div class="col-md-3 col-6">
+									<h6 class="event-name" id="event1-name">Events 2</h6>
+									<div class="event1-container">
+										<a id="event1-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="event1-img" src="http://via.placeholder.com/200x200">
+										</a>
+									</div>
+
+								</div>
+								<div class="col-md-3 col-6">
+									<h6 class="event-name" id="event2-name">Events 3</h6>
+									<div class="event2-container">
+										<a id="event2-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="event2-img" s rc="http://via.placeholder.com/200x200">
+										</a>
+									</div>
+								</div> 
+								
+								<div class="col-6 col-md-3">
+									<h6 class="event-name" id="event3-name">Event 4</h6>
+									<div class="event3-container">
+										<a id="event3-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="event3-img" src="http://via.placeholder.com/200x200">
+										</a>
+									</div>
+
+								</div>
+							</div>
+							<!-- Restaurants -->
+							<div class="row my-3">
+								<div class="col-12">
+									<h4>Restaurants In Area</h4>
+								</div>
+								<div class="col-md-3 col-6">
+									<h6 class="event-name" id="restaurant0-name">Restaurants 1</h6>
+									<div class="restaurant0-container">
+										<a id="restaurant0-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="restaurant0-img" src="http://via.placeholder.com/200x200">
+										</a>
+									</div>
+
+								</div>
+								<div class="col-md-3 col-6">
+									<h6 class="event-name" id="restaurant1-name">Restaurants 2</h6>
+									<div class="restaurant1-container">
+										<a id="restaurant1-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="restaurant1-img" src="http://via.placeholder.com/200x200">
+										</a>
+									</div>
+
+								</div>
+								<div class="col-md-3 col-6">
+									<h6 class="event-name" id="restaurant2-name">Restaurants 3</h6>
+									<div class="restaurant2-container">
+										<a id="restaurant2-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="restaurant2-img" src="http://via.placeholder.com/200x200">
+										</a>
+									</div>
+
+								</div>
+								<div class="col-6 col-md-3">
+									<h6 class="event-name" id="restaurant3-name">Restaurants 4</h6>
+									<div class="restaurant3-container">
+										<a id="restaurant3-url" href="#" target="_blank">
+											<img class="event-image img-fluid" id="restaurant3-img" src="http://via.placeholder.com/200x200">
+										</a>
+									</div>
+
+								</div>
+							</div>
+							<!-- Save Button -->
+							<div class="row">
+								<div class="col-12">
+									<div id="save-event" class="btn btn-primary w-100 mt-3" style="background-color: #9bbfab;">Save</div>
+								</div>
+							</div>
+						</div>
+						<!-- roch edits -->
+						<!-- <div class="results-view" id="restaurants-view">
 									<div class="row">
 										<div class="col-12">
 											<h4>Restaurants In Area</h4>
@@ -204,31 +234,31 @@
 										</div>
 									</div>
 								</div> -->
-								<!--end roch edits -->
-							</div>
-							<!-- End Results Display -->
-						</div>
-
+						<!--end roch edits -->
 					</div>
-					<!-- End Content Container -->
+					<!-- End Results Display -->
 				</div>
 
 			</div>
+			<!-- End Content Container -->
+		</div>
+
+	</div>
 
 
-			<!-- Bootstrap jQuery Link -->
+	<!-- Bootstrap jQuery Link -->
 	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-		crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-		crossorigin="anonymous"></script>
-		<!-- Link Javascript File -->
-		<!-- <script type="text/javascript" src="assets/js/dashboard.js"></script> -->
-		<!-- Link Yelp JS File -->
-		<script type="text/javascript" src="assets/js/yelp.js"></script>
-		<!-- Link Javascript File -->
-		<script type="text/javascript" src="assets/js/addevent.js"></script>
-	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+	 crossorigin="anonymous"></script>
+	<!-- Link Javascript File -->
+	<!-- <script type="text/javascript" src="assets/js/dashboard.js"></script> -->
+	<!-- Link Yelp JS File -->
+	<script type="text/javascript" src="assets/js/yelp.js"></script>
+	<!-- Link Javascript File -->
+	<script type="text/javascript" src="assets/js/addevent.js"></script>
+</body>
 
-	</html>
+</html>

@@ -372,7 +372,7 @@ h6.modal-or {
 /* Input Form */
 .input-form,
 .results-view {
-  height: 600px;
+  min-height: 600px;
   padding: 2rem;
   background-color: #656f8c;
   border-bottom-left-radius: 0.25rem;
@@ -409,8 +409,8 @@ h6.modal-or {
 }
 
 .event-image {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 /* Features Section */
@@ -696,16 +696,32 @@ h6.modal-or {
 }
 
 /* TESTING SIDEBAR */
-.sidebar-hide {
+@media (min-width: 768px) {
+  .sidebar-hide {
   transform: rotate(90deg);
   position: absolute;
   left: -15vw;
   top: 45%;
   /*transition: all 2s;*/
 }
+}
+
 
 .sidebar-show {
   transform: none;
   position: relative;
   /*transition: all 2s;*/
+}
+
+/* Button positioning */
+.resultButton {
+  position: absolute;
+  left: 20%;
+  top: 65%;
+  width: 60%;
+}
+.savedBtnClick {
+  color: #f2efdf!important;
+  background-color: #656f8c!important;
+  border-color: #413659!important;
 }

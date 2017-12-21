@@ -406,3 +406,35 @@
 [info] i  hosting: Serving hosting files from: /.
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2017-12-21T01:45:00.370Z] ----------------------------------------------------------------------
+[debug] [2017-12-21T01:45:00.385Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jjdav_000\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-12-21T01:45:00.385Z] CLI Version:   3.16.0
+[debug] [2017-12-21T01:45:00.385Z] Platform:      win32
+[debug] [2017-12-21T01:45:00.385Z] Node Version:  v6.11.4
+[debug] [2017-12-21T01:45:00.385Z] Time:          Wed Dec 20 2017 18:45:00 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T01:45:00.385Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-21T01:45:00.448Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-21T01:45:00.448Z] > authorizing via signed-in user
+[debug] [2017-12-21T01:45:00.448Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
+  
+ Wed Dec 20 2017 18:45:00 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T01:45:01.217Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-21T01:45:01.217Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
+  
+ Wed Dec 20 2017 18:45:01 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T01:45:16.775Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\jjdav_000\Desktop\UA_BOOTCAMP\10-17-2017-Tucson-Class-Repository-FSF\Project_01\Event-Planner'...
+[info] 
+[debug] [2017-12-21T01:45:16.787Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
+  
+ Wed Dec 20 2017 18:45:16 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T01:45:17.364Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-21T01:45:17.364Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
+  
+ Wed Dec 20 2017 18:45:17 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T01:45:18.044Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /.
+[info] +  hosting: Local server: http://localhost:5000
+

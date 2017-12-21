@@ -165,6 +165,7 @@ h5 {
 
 .masthead-brand {
   margin-bottom: 0;
+  font-size: 2rem;
 }
 
 .masthead-brand a{
@@ -238,6 +239,9 @@ h5 {
   margin-bottom: 4rem;
 }
 
+.cover p.lead {
+  width: 550px
+}
 
 /* Scroll Down Arrow */
 
@@ -253,11 +257,11 @@ h5 {
 
 .scroll-down {
   /*border-bottom: 1px solid rgba(242, 239, 223, 0.3);*/
-  box-shadow: 0 6px 19px 0 rgba(0,0,0,.375);
+ /* box-shadow: 0 6px 19px 0 rgba(0,0,0,.375);*/
   padding-top: 10px;
   height: 50px;
   width: 50px;
-  background-color: rgba(65, 54, 89, 0.5);
+  /*background-color: rgba(65, 54, 89, 0.5);*/
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
@@ -275,6 +279,8 @@ h5 {
   .mastfoot {
     position: absolute;
     bottom: 0;
+    left: 50%;
+    margin-left: -4rem;
   }
   /* Start the vertical centering */
   .site-wrapper-inner {
@@ -284,7 +290,7 @@ h5 {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    /*width: 100vw;*/ /* Must be percentage or pixels for horizontal alignment */
   }
 }
 

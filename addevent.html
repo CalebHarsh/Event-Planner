@@ -65,14 +65,11 @@
 
 					<div class="row">
 						<!-- Input Form -->
-						<div class="col-md-4 animated bounceInLeft" style="z-index: 1000;">
-							<h2 class="content-label mb-0 mt-3 p-2" ><a data-toggle="collapse" data-target="#eventInfo">Set Your Event</a>
-								<!-- <button class="btn btn-dark float-right d-md-none" type="button" data-toggle="collapse" data-target="#eventInfo" aria-expanded="false" aria-controls="collapseExample">
-									<span>Show</span>
-							  </button> -->
+						<div class="col-md-4 sidebar-show animated zoomIn" style="z-index: 999;" id="inputSidebar">
+							<h2 class="content-label mb-0 mt-3 p-2" onclick="toggleSidebar()" data-toggle="collapse" data-target="#eventInfo" aria-expanded="true" aria-controls="collapseExample">Set Your Event
 							</h2>
 							
-							<div id="eventInfo">
+							<div class="collapse show" id="eventInfo">
 								<form class="input-form" id="input-form">
 								<div class="form-group mb-4">
 									<label class="col-form-label" for="name-input">Name of Your Event</label>
@@ -90,7 +87,7 @@
 									<label class="col-form-label" for="location-input">Location</label>
 									<input type="text" class="form-control" id="location-input" required>
 								</div>
-								<button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#eventInfo">Submit</button>
+								<button type="submit" class="btn btn-primary" data-toggle="collapse" onclick="toggleSidebar()" data-target="#eventInfo">Submit</button>
 							</form>
 							</div>
 							

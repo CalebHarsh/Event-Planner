@@ -322,3 +322,30 @@ function showEvents(arrayOfEvents) {
 
 
 } //show array of events
+
+
+function toggleSidebar() {
+	// $(obj).toggleClass("sidebar-hide");
+	// $(obj).toggleClass("sidebar-show");
+	if($("#inputSidebar").hasClass("sidebar-show")) {
+		$("#inputSidebar").removeClass("zoomIn");
+		$("#inputSidebar").addClass("zoomOut");
+		$("#inputSidebar").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+			$("#inputSidebar").removeClass("zoomOut");
+			$("#inputSidebar").removeClass("sidebar-show");
+			$("#inputSidebar").addClass("zoomIn sidebar-hide");
+			$("#results-column").removeClass("col-md-8");
+			$("#results-column").addClass("col-md-12");
+		});
+	} else {
+		$("#inputSidebar").removeClass("zoomIn");
+		$("#inputSidebar").addClass("zoomOut");
+		$("#inputSidebar").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+			$("#inputSidebar").removeClass("zoomOut");
+			$("#inputSidebar").removeClass("sidebar-hide");
+			$("#inputSidebar").addClass("zoomIn sidebar-show");
+			$("#results-column").removeClass("col-md-12");
+			$("#results-column").addClass("col-md-8");
+		});
+	}
+}

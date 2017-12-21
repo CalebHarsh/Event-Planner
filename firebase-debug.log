@@ -382,27 +382,27 @@
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Tue Dec 19 2017 20:05:24 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-20T03:05:24.624Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-20T03:05:24.686Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
+ Wed Dec 20 2017 00:55:34 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-20T07:55:34.747Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-20T07:55:34.795Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
   
- Tue Dec 19 2017 20:05:24 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-20T03:05:25.329Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-20T03:05:25.332Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
+ Wed Dec 20 2017 00:55:34 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-20T07:55:35.335Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-20T07:55:35.339Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
   
- Tue Dec 19 2017 20:05:25 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-20T03:05:25.759Z] <<< HTTP RESPONSE 200
+ Wed Dec 20 2017 00:55:35 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-20T07:55:35.821Z] <<< HTTP RESPONSE 200
 [info] 
-[info] === Serving from 'C:\Users\Caleb_000\Desktop\code\Project-1\Event-Planner'...
+[info] === Serving from 'C:\Users\jjdav_000\Desktop\UA_BOOTCAMP\10-17-2017-Tucson-Class-Repository-FSF\Project_01\Event-Planner'...
 [info] 
-[debug] [2017-12-20T03:05:25.808Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
+[debug] [2017-12-20T07:55:35.841Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
   
- Tue Dec 19 2017 20:05:25 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-20T03:05:26.309Z] <<< HTTP RESPONSE 200
-[debug] [2017-12-20T03:05:26.312Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
+ Wed Dec 20 2017 00:55:35 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-20T07:55:36.401Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-20T07:55:36.405Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
   
- Tue Dec 19 2017 20:05:26 GMT-0700 (US Mountain Standard Time)
-[debug] [2017-12-20T03:05:26.915Z] <<< HTTP RESPONSE 200
+ Wed Dec 20 2017 00:55:36 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-20T07:55:37.099Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: /.
 [info] +  hosting: Local server: http://localhost:5000
 

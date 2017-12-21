@@ -335,6 +335,7 @@ h5 {
 
 .modal-title {
   margin: 1rem auto;
+  font-weight: bold;
 }
 
 .modal-header,
@@ -407,6 +408,7 @@ h6.modal-or {
 .event-name:hover {
     text-overflow: ellipsis;
     overflow: visible;
+    white-space: normal;
 }
 
 .event-image {
@@ -771,6 +773,8 @@ h6.modal-or {
   left: 22px;
   top: 62px;
   width: 100px;
+  border-color: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .col-md-12 > .results-view > .row > .col-6 > .position-relative > .resultButton {
@@ -778,6 +782,8 @@ h6.modal-or {
   left: 70px;
   top: 62px;
   width: 100px;
+  border-color: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .savedBtnClick {

@@ -119,8 +119,8 @@ var saved = [];
 // Set a listener for when user clicks submit
 inputForm.on("submit", function (event) {
 	event.preventDefault();
-	$("#results-column").css("display", "block");
-	$("#results-column").addClass("animated bounceInRight");
+	// $("#results-column").css("display", "block");
+	// $("#results-column").addClass("animated bounceInRight");
 	console.log(event);
 
 	// Store each user input
@@ -133,6 +133,9 @@ inputForm.on("submit", function (event) {
 	console.log(startDate);
 	console.log(endDate);
 	console.log(eventLocation);
+
+	// Empty the saved events if there are any
+	saved = [];
 
 	// Now we make our API calls
 	//locationAjax(eventLocation.split(",")[0]);
@@ -290,6 +293,9 @@ function showEvents(arrayOfEvents) {
 		// $("#event" + i + "-img").parent().parent().attr("id", "event" + i + "Container")
 
 
+		if($("#event" + i)) {
+			$("#event" + i).remove();
+		}
 		// add button to container
 		$(".event" + i + "-container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative")
@@ -305,8 +311,9 @@ function showEvents(arrayOfEvents) {
 		$("#restaurant" + i + "-img").attr("src", restaurantImg);
 
 
-
-
+		if($("#restaurant" + i)) {
+			$("#restaurant" + i).remove();
+		}
 		// add button to container
 		$(".restaurant" + i + "-container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative");	
@@ -367,7 +374,8 @@ function showEvents(arrayOfEvents) {
 	}
 	saveEvents(saveEvent);
 
-
+	$("#results-column").css("display", "block");
+	$("#results-column").addClass("animated bounceInRight");
 
 } //show array of events
 

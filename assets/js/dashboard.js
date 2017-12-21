@@ -139,9 +139,12 @@ EventPlanner.prototype.showEventDetails = function() {
 EventPlanner.prototype.populateModal = function(name, startDate, endDate, location) {
     var modal = document.getElementById('eventsDetailLabel');
 
+    var startFormat = moment(startDate).format("MMMM D YYYY");
+    var endFormat = moment(endDate).format("MMMM D YYYY");
+
     modal.querySelector('.detail-name-modal').textContent = name;
-    modal.querySelector('.detail-startdate-modal').textContent = startDate;
-    modal.querySelector('.detail-enddate-modal').textContent = endDate;
+    modal.querySelector('.detail-startdate-modal').textContent = startFormat;
+    modal.querySelector('.detail-enddate-modal').textContent = endFormat;
     modal.querySelector('.detail-location-modal').textContent = location;
 }
 
@@ -151,7 +154,8 @@ EventPlanner.prototype.populateModalList = function(name, img, url, desc) {
 
     var row = $("<div>").addClass("row modal-event-list");
     var imgCol = $("<div>").addClass("col-4");
-    var aTag = $("<a>").attr("href", url);
+    var aTag = $("<a>").attr("href", url)
+    aTag.attr("target", "_blank");
     var imgTag = $("<img>").attr("src", img).addClass("rounded img-thumbnail modal-list-image");
 
     imgCol.append(aTag.append(imgTag));

@@ -679,7 +679,7 @@ h6.modal-or {
 /* Button positioning */
 .resultButton {
   position: absolute;
-  left: 5%;
-  top: 180%;
-  width: 90%;
+  left: 20%;
+  top: 65%;
+  width: 60%;
 }

@@ -277,7 +277,7 @@ function showEvents(arrayOfEvents) {
 		// $("#event" + i + "-img").parent().parent().attr("id", "event" + i + "Container")
 
 		// add button to container
-		$("#event" + i + "-url").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
+		$(".event" + i + "-container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative")
 
 		// Change the restaurant#-name in html
@@ -291,7 +291,7 @@ function showEvents(arrayOfEvents) {
 		// $("#restaurant" + i + "-img").parent().parent().attr("id" , "restaurant" + i + "Container")
 
 		// add button to container
-		$("#restaurant" + i + "-url").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
+		$(".restaurant" + i + "-container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative")
 
 		//add listener for save buttons

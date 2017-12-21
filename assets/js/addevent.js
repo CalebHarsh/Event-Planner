@@ -150,7 +150,7 @@ function getWeatherAPIURL(lat, long, time) {
 	var APIkey = "bb3044cbc0686c80eeb8b44883666dd9";
 	console.log("TIME");
 	console.log(time);
-	var query = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + APIkey + "/" + lat + "," + long + "," + time;
+	var query = "https://tri-cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + APIkey + "/" + lat + "," + long + "," + time;
 
 	return query;
 }
@@ -272,9 +272,11 @@ function showEvents(arrayOfEvents) {
 		// Change the event#-img in html
 		$("#event" + i + "-img").attr("src", eventImg);
 		
-		// add ID to parent of image
+		// add ID to parent of image and class of eventContainer
 		
-		$("#event" + i + "-img").parent().parent().attr("id" , "event" + i + "Container")
+		$("#event" + i + "-img").parent().parent().attr({
+			"id" : "event" + i + "Container",
+			"class" : "eventContainer"})
 		
 		// add button to container
 		$("#event" + i + "Container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
@@ -286,8 +288,10 @@ function showEvents(arrayOfEvents) {
 		// Change the restaurant#-img in html
 		$("#restaurant" + i + "-img").attr("src", restaurantImg);
 
-
-		$("#restaurant" + i + "-img").parent().parent().attr("id" , "restaurant" + i + "Container")
+		//add ID to parent of image and class of restaurantContainer
+		$("#restaurant" + i + "-img").parent().parent().attr({
+			"id" : "restaurant" + i + "Container",
+			"class" : "restaurantContainter"})
 		
 		// add button to container
 		$("#restaurant" + i + "Container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
@@ -302,10 +306,8 @@ function showEvents(arrayOfEvents) {
  		saving.name = document.getElementById(this.getAttribute("id") + "-name").innerHTML
 		saving.img  = document.getElementById(this.getAttribute("id") + "-img").getAttribute("src")
  		saving.url  = document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
- 		if(saved.indexOf(saving) === -1){
- 
- 		saved.push(saving)
- }
+		console.log(this)
+		this.innerHTML = "Saved"
 		console.log("you clicked " + this.getAttribute("id"))	
 		})
 	}
@@ -315,9 +317,17 @@ function showEvents(arrayOfEvents) {
 
 	} //for loop
 
-
-
-
+//add listener for final Save
+	saveEvent = document.getElementById("save-event")
+	function saveEvents(x) {
+	x.addEventListener("click", function() {
+		console.log(saved)
+		saved = saved.filter((saved, index, self) => self.findIndex(t => t.id === saved.id) === index) 
+		console.log(saved)
+		return saved
+	})
+	}
+	saveEvents(saveEvent)
 
 
 

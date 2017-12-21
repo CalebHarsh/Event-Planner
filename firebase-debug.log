@@ -337,10 +337,12 @@
 [debug] [2017-12-20T01:54:24.849Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
 [debug] [2017-12-20T01:54:24.850Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  { refresh_token: '1/JOgMFfGIeNDsP927z9kSKNE6l9s7oF360pc9MYfZiJw',
+
   client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+
  Tue Dec 19 2017 18:54:24 GMT-0700 (US Mountain Standard Time)
 [debug] [2017-12-20T01:54:25.353Z] <<< HTTP RESPONSE 200
 [debug] [2017-12-20T01:54:25.384Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
@@ -378,10 +380,12 @@
 [debug] [2017-12-20T03:05:24.281Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
 [debug] [2017-12-20T03:05:24.282Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  { refresh_token: '1/JOgMFfGIeNDsP927z9kSKNE6l9s7oF360pc9MYfZiJw',
+
   client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+
  Wed Dec 20 2017 00:55:34 GMT-0700 (US Mountain Standard Time)
 [debug] [2017-12-20T07:55:34.747Z] <<< HTTP RESPONSE 200
 [debug] [2017-12-20T07:55:34.795Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
@@ -487,4 +491,5 @@
 [debug] [2017-12-21T03:11:52.189Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: /.
 [info] +  hosting: Local server: http://localhost:5000
+
 

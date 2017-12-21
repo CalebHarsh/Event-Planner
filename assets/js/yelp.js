@@ -24,7 +24,7 @@ let restaurantResults = {};
 var eventsReturn = {
   "async": true,
   "crossDomain": true,
-  "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?longitude=" + search.longitude + "&latitude=" + search.latitude + "&start_date=" + search.start + "&end_date=" + search.end + "&sort_on=popularity&sort_by=desc&limit=10",
+  "url": "https://tri-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?longitude=" + search.longitude + "&latitude=" + search.latitude + "&start_date=" + search.start + "&end_date=" + search.end + "&sort_on=popularity&sort_by=desc&limit=10",
   "method": "GET",
   "headers": {
     "Authorization": "Bearer wZvyZC1_O8ICJQ2dO3N9ICI8PrffGCTMPI20txzJBGgaVJ1QED9FU4UYu1KU62XTFG-L8shOc5ww93R-oSf3HQt1BuRmhcSuZKwETdohvWRrWsgpzN8dAjqYANYyWnYx",
@@ -36,7 +36,7 @@ var eventsReturn = {
 var restaurantsReturn = {
   "async": true,
   "crossDomain": true,
-  "url":"https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?longitude=" + search.longitude + "&latitude=" + search.latitude + "&limit=10",
+  "url":"https://tri-cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?longitude=" + search.longitude + "&latitude=" + search.latitude + "&limit=10",
   "method": "GET",
   "headers": {
     "Authorization": "Bearer wZvyZC1_O8ICJQ2dO3N9ICI8PrffGCTMPI20txzJBGgaVJ1QED9FU4UYu1KU62XTFG-L8shOc5ww93R-oSf3HQt1BuRmhcSuZKwETdohvWRrWsgpzN8dAjqYANYyWnYx",

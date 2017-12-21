@@ -150,7 +150,7 @@ function getWeatherAPIURL(lat, long, time) {
 	var APIkey = "bb3044cbc0686c80eeb8b44883666dd9";
 	console.log("TIME");
 	console.log(time);
-	var query = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + APIkey + "/" + lat + "," + long + "," + time;
+	var query = "https://tri-cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + APIkey + "/" + lat + "," + long + "," + time;
 
 	return query;
 }
@@ -276,6 +276,7 @@ function showEvents(arrayOfEvents) {
 
 		// $("#event" + i + "-img").parent().parent().attr("id", "event" + i + "Container")
 
+
 		// add button to container
 		$(".event" + i + "-container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative")
@@ -288,38 +289,46 @@ function showEvents(arrayOfEvents) {
 		$("#restaurant" + i + "-img").attr("src", restaurantImg);
 
 
-		// $("#restaurant" + i + "-img").parent().parent().attr("id" , "restaurant" + i + "Container")
 
+		
 		// add button to container
 		$(".restaurant" + i + "-container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative")
 
-		//add listener for save buttons
-		outing = document.getElementById("event" + i)
-		restaurant = document.getElementById("restaurant" + i)
-		function save(e) {
-			e.addEventListener("click", function () {
-				var saving = new Object()
-				saving.id = this.getAttribute("id")
-				saving.name = document.getElementById(this.getAttribute("id") + "-name").innerHTML
-				saving.img = document.getElementById(this.getAttribute("id") + "-img").getAttribute("src")
-				saving.url = document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
-				if (saved.indexOf(saving) === -1) {
 
-					saved.push(saving)
-				}
-				console.log("you clicked " + this.getAttribute("id"))
-			})
-		}
+//add listener for save buttons
+	outing = document.getElementById("event" + i)
+	restaurant = document.getElementById("restaurant" + i)
+	function save(e) {
+	e.addEventListener("click", function(){
+		var saving = new Object()
+		saving.id = this.getAttribute("id") 
+ 		saving.name = document.getElementById(this.getAttribute("id") + "-name").innerHTML
+		saving.img  = document.getElementById(this.getAttribute("id") + "-img").getAttribute("src")
+ 		saving.url  = document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
+		console.log(this)
+		this.innerHTML = "Saved"
+		console.log("you clicked " + this.getAttribute("id"))	
+		})
+	}
+	
+	save(outing)
+	save(restaurant)
 
-		save(outing)
-		save(restaurant)
 
 	} //for loop
 
-
-
-
+//add listener for final Save
+	saveEvent = document.getElementById("save-event")
+	function saveEvents(x) {
+	x.addEventListener("click", function() {
+		console.log(saved)
+		saved = saved.filter((saved, index, self) => self.findIndex(t => t.id === saved.id) === index) 
+		console.log(saved)
+		return saved
+	})
+	}
+	saveEvents(saveEvent)
 
 
 

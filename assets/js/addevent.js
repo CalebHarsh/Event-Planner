@@ -280,6 +280,8 @@ function showEvents(arrayOfEvents) {
 		// add button to container
 		$(".event" + i + "-container").append('<button id="event' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative")
+		//adds data attribute to save button
+		$(".event" + i).data("saved", false)
 
 		// Change the restaurant#-name in html
 		$("#restaurant" + i + "-name").text(restaurantName);
@@ -290,43 +292,64 @@ function showEvents(arrayOfEvents) {
 
 
 
-		
+
 		// add button to container
 		$(".restaurant" + i + "-container").append('<button id="restaurant' + i + '" class="btn btn-primary resultButton">Save</button>')
 			.addClass("position-relative")
+		//adds data attribute to save button
+		$(".restaurant" + i).data("saved", false)
+
+		//add listener for save buttons
+		outing = document.getElementById("event" + i)
+		restaurant = document.getElementById("restaurant" + i)
+		function save(e) {
+			e.addEventListener("click", function () {
+				var saving = {
+					id: this.getAttribute("id"),
+					name: document.getElementById(this.getAttribute("id") + "-name").innerHTML,
+					img: document.getElementById(this.getAttribute("id") + "-img").getAttribute("src"),
+					url: document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
+				}
+
+				console.log(this)
+
+				//Caleb's save features
+				if ($(this).data("saved")) {
+					$(this).addClass("btn-primary").removeClass("savedBtnClick")
+						.text("Save")
+					$(this).data("saved", false)
+					var index = saved.findIndex(s => s.id === saving.id)
+					// console.log(saved, saving)
+					// console.log(index)
+					saved.splice(index, 1)
+				} else {
+					$(this).addClass("savedBtnClick").removeClass("btn-primary")
+						.text("Saved")
+					$(this).data("saved", true)
+					saved.push(saving)
+				}
 
 
-//add listener for save buttons
-	outing = document.getElementById("event" + i)
-	restaurant = document.getElementById("restaurant" + i)
-	function save(e) {
-	e.addEventListener("click", function(){
-		var saving = new Object()
-		saving.id = this.getAttribute("id") 
- 		saving.name = document.getElementById(this.getAttribute("id") + "-name").innerHTML
-		saving.img  = document.getElementById(this.getAttribute("id") + "-img").getAttribute("src")
- 		saving.url  = document.getElementById(this.getAttribute("id") + "-url").getAttribute("href")
-		console.log(this)
-		this.innerHTML = "Saved"
-		console.log("you clicked " + this.getAttribute("id"))	
-		})
-	}
-	
-	save(outing)
-	save(restaurant)
+
+				console.log("you clicked " + this.getAttribute("id"))
+			})
+		}
+
+		save(outing)
+		save(restaurant)
 
 
 	} //for loop
 
-//add listener for final Save
+	//add listener for final Save
 	saveEvent = document.getElementById("save-event")
 	function saveEvents(x) {
-	x.addEventListener("click", function() {
-		console.log(saved)
-		saved = saved.filter((saved, index, self) => self.findIndex(t => t.id === saved.id) === index) 
-		console.log(saved)
-		return saved
-	})
+		x.addEventListener("click", function () {
+			console.log(saved)
+			saved = saved.filter((saved, index, self) => self.findIndex(t => t.id === saved.id) === index)
+			console.log(saved)
+			return saved
+		})
 	}
 	saveEvents(saveEvent)
 

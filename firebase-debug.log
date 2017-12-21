@@ -493,3 +493,35 @@
 [info] +  hosting: Local server: http://localhost:5000
 
 
+[debug] [2017-12-21T03:48:04.396Z] ----------------------------------------------------------------------
+[debug] [2017-12-21T03:48:04.412Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Caleb_000\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-12-21T03:48:04.412Z] CLI Version:   3.16.0
+[debug] [2017-12-21T03:48:04.412Z] Platform:      win32
+[debug] [2017-12-21T03:48:04.412Z] Node Version:  v6.11.2
+[debug] [2017-12-21T03:48:04.412Z] Time:          Wed Dec 20 2017 20:48:04 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T03:48:04.412Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-21T03:48:04.443Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-21T03:48:04.459Z] > authorizing via signed-in user
+[debug] [2017-12-21T03:48:04.467Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-planner-54834  
+  
+ Wed Dec 20 2017 20:48:04 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T03:48:05.292Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-21T03:48:05.292Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-planner-54834/tokens  
+  
+ Wed Dec 20 2017 20:48:05 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T03:48:05.869Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Caleb_000\Desktop\code\Project-1\Event-Planner'...
+[info] 
+[debug] [2017-12-21T03:48:05.885Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/event-planner-54834  
+  
+ Wed Dec 20 2017 20:48:05 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T03:48:06.432Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-21T03:48:06.432Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/803664413287/clients/_:getWebAppConfig  
+  
+ Wed Dec 20 2017 20:48:06 GMT-0700 (US Mountain Standard Time)
+[debug] [2017-12-21T03:48:07.026Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /.
+[info] +  hosting: Local server: http://localhost:5000
+

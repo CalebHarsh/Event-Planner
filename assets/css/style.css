@@ -683,3 +683,8 @@ h6.modal-or {
   top: 65%;
   width: 60%;
 }
+.savedBtnClick {
+  color: #f2efdf!important;
+  background-color: #656f8c!important;
+  border-color: #413659!important;
+}
